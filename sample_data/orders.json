@@ -1,0 +1,20 @@
+{
+  "-DiBsfuTafbED8eAULxV" :{ 
+    "itemName" : "Box",
+    "orderFirebaseKey" : "-DiBsfuTafbED8eAULxV",
+    "itemFirebaseKey" : "-MiBsfuTafbEQ7eAULxV",
+    "orderName" : "Jacob",
+    "orderStatus" : true,
+    "cusomerPhone" : "615-945-5033",
+    "dateCreated" : "06/13/2022"
+  },
+  "-TWOsfuTafbED8eAULxV" :{ 
+    "itemName" : "Card",
+    "orderFirebaseKey" : "-TWOsfuTafbED8eAULxV",
+    "itemFirebaseKey" : "-MiBsfuTafbEQ7eAULxV",
+    "orderName" : "Nishaya",
+    "orderStatus" : false,
+    "cusomerPhone" : "615-945-5045",
+    "dateCreated" : "06/15/2022"
+  }
+}
