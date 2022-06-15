@@ -1,4 +1,4 @@
-import loginButton from '../components/buttons/loginButton';
+import loginButton from '../buttons/loginButton';
 
 const welcomeLogin = () => {
   document.querySelector('#app').innerHTML = `

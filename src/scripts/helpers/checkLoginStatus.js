@@ -1,7 +1,7 @@
 import firebase from 'firebase/app';
 import 'firebase/auth';
 import firebaseConfig from '../../api/apiKeys';
-import { welcomeLogin } from '../pages/welcomeLogin';
+import { welcomeLogin } from '../components/pages/welcomeLogin';
 import startApp from './startApp';
 
 const checkLoginStatus = () => {
