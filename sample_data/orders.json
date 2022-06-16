@@ -6,6 +6,7 @@
     "orderName" : "Jacob",
     "orderStatus" : true,
     "cusomerPhone" : "615-945-5033",
+    "customerEmail" : "123@gamil.com",
     "dateCreated" : "06/13/2022"
   },
   "-TWOsfuTafbED8eAULxV" :{ 
@@ -15,6 +16,7 @@
     "orderName" : "Nishaya",
     "orderStatus" : false,
     "cusomerPhone" : "615-945-5045",
+    "customerEmail" : "193@gmail.com",
     "dateCreated" : "06/15/2022"
   }
 }
