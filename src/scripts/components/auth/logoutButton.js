@@ -1,4 +1,4 @@
-import signOut from '../../helpers/signOut';
+import signOut from '../../helpers/authentication/signOut';
 
 const logoutButton = () => {
   const domString = '<button id="google-auth" class="btn btn-danger">SIGNOUT</button>';
