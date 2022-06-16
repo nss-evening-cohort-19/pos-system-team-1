@@ -5,8 +5,6 @@
 // import navEvents from '../events/navEvents';
 // import formEvents from '../events/formEvents';
 
-
-
 const startApp = () => {
   //   domBuilder(); // BUILD THE DOM
   //   domEvents(); // ADD THE EVENT LISTENTERS TO THE DOM
@@ -15,6 +13,6 @@ const startApp = () => {
   //   navEvents(); // ATTACH THE EVENT LISTENERS TO THE NAVBAR
   //   logoutButton(); // ADD THE LOGOUT BUTTON COMPONENT
   //   // TODO: Put all cards on the DOM on App load
-  };
-  
-  export default startApp;
+};
+
+export default startApp;
