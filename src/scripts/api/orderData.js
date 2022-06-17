@@ -3,14 +3,8 @@ import firebaseConfig from './apiKeys';
 
 const dbUrl = firebaseConfig.databaseURL;
 
-<<<<<<< HEAD:src/api/orderData.js
 const getOrders = () => new Promise((resolve, reject) => {
   axios.get(`${dbUrl}/orders.json`)
-=======
-// FIXME:  GET ALL ORDERS
-const getOrders = (uid) => new Promise((resolve, reject) => {
-  axios.get(`${dbUrl}/orders.json?orderBy="uid"&equalTo="${uid}"`)
->>>>>>> main:src/scripts/api/orderData.js
     .then((response) => {
       if (response.data) {
         resolve(Object.values(response.data));
@@ -21,7 +15,6 @@ const getOrders = (uid) => new Promise((resolve, reject) => {
     .catch((error) => reject(error));
 });
 
-<<<<<<< HEAD:src/api/orderData.js
 const deleteOrders = (firebaseKey) => new Promise((resolve, reject) => {
   axios.delete(`${dbUrl}/books/${firebaseKey}.json`)
     .then(() => {
@@ -29,8 +22,7 @@ const deleteOrders = (firebaseKey) => new Promise((resolve, reject) => {
     })
     .catch((error) => reject(error));
 });
-export { getOrders, deleteOrders };
-=======
+
 // FIXME: CREATE AN ORDER
 const createOrder = (orderObj) => new Promise((resolve, reject) => {
   axios.post(`${dbUrl}/authors.json`, orderObj)
@@ -52,7 +44,7 @@ const getSingleOrder = (firebaseKey) => new Promise((resolve, reject) => {
 
 export {
   getOrders,
+  deleteOrders,
   createOrder,
   getSingleOrder
 };
->>>>>>> main:src/scripts/api/orderData.js

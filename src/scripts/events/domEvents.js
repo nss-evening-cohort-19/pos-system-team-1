@@ -1,5 +1,5 @@
-import { deleteOrders } from '../../../api/orderData';
-import { showOrders } from '../pages/orders';
+import { deleteOrders } from '../api/orderData';
+import { showOrders } from '../components/pages/orders';
 
 const domEvents = () => {
   document.querySelector('#main-container').addEventListener('click', (e) => {
