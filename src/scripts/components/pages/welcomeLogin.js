@@ -1,4 +1,4 @@
-import loginButton from '../buttons/loginButton';
+import loginButton from '../auth/loginButton';
 
 const welcomeLogin = () => {
   document.querySelector('#app').innerHTML = `
@@ -9,4 +9,4 @@ const welcomeLogin = () => {
   loginButton();
 };
 
-export { welcomeLogin, loginButton };
+export default welcomeLogin;
