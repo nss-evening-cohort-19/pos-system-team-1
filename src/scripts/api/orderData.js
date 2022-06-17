@@ -3,15 +3,22 @@ import firebaseConfig from './apiKeys';
 
 const dbUrl = firebaseConfig.databaseURL;
 
-// FIXME:  GET ALL ORDERS
-const getOrders = (uid) => new Promise((resolve, reject) => {
-  axios.get(`${dbUrl}/orders.json?orderBy="uid"&equalTo="${uid}"`)
+const getOrders = () => new Promise((resolve, reject) => {
+  axios.get(`${dbUrl}/orders.json`)
     .then((response) => {
       if (response.data) {
         resolve(Object.values(response.data));
       } else {
         resolve([]);
       }
+    })
+    .catch((error) => reject(error));
+});
+
+const deleteOrders = (firebaseKey) => new Promise((resolve, reject) => {
+  axios.delete(`${dbUrl}/books/${firebaseKey}.json`)
+    .then(() => {
+      getOrders().then((ordersArray) => resolve(ordersArray));
     })
     .catch((error) => reject(error));
 });
@@ -37,6 +44,7 @@ const getSingleOrder = (firebaseKey) => new Promise((resolve, reject) => {
 
 export {
   getOrders,
+  deleteOrders,
   createOrder,
   getSingleOrder
 };
