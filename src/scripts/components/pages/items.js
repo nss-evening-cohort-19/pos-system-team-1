@@ -20,7 +20,7 @@ const showItems = (array) => {
     <div class="card" style="width: 18rem;">
       <div class="card-body">
         <h5 class="card-title">${obj.itemName}</h5>
-        <h6 class="card-price mb-2 text-muted">${obj.price}</h6>
+        <h6 class="card-price mb-2 text-muted">${obj.itemPrice}</h6>
         <hr>
         <i class="btn btn-success fas fa-eye" id="view-item-btn--${obj.firebaseKey}"></i>
         <i class="fas fa-edit btn btn-info" id="edit-item--${obj.firebaseKey}"></i>
