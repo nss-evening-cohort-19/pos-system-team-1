@@ -11,7 +11,7 @@ const navBar = () => {
         class="container-fluid"
         style="align-items: center;">
         <a
-          class="navbar-brand title" href="#"
+          class="navbar-brand title" href="#" id="navbarTitle"
           style="font-weight: bold;font-size: 28px;display: flex;align-items: center;">
           <img
                src=${pizzaImg}
