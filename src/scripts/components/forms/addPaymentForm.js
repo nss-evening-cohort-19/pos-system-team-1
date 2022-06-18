@@ -32,9 +32,9 @@ aria-label="Default select example">
   value="3">
    Mobile
 </option>
-</select>
 value="${obj.paymentType || ''}"
       required>
+</select>
 </div>
 <div
   class="form-group">
