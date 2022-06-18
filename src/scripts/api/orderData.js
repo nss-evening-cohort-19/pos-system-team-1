@@ -15,8 +15,8 @@ const getOrders = () => new Promise((resolve, reject) => {
     .catch((error) => reject(error));
 });
 
-const deleteOrders = (orderFirebaseKey) => new Promise((resolve, reject) => {
-  axios.delete(`${dbUrl}/orders/${orderFirebaseKey}.json`)
+const deleteOrders = (firebaseKey) => new Promise((resolve, reject) => {
+  axios.delete(`${dbUrl}/orders/${firebaseKey}.json`)
     .then(() => {
       getOrders().then((ordersArray) => resolve(ordersArray));
     })
