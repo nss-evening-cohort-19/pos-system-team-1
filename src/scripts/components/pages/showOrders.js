@@ -18,9 +18,15 @@ const showOrders = (array) => {
       <p class="card-phone">${obj.customerPhone}</p>
       <p class="card-date">${obj.customerEmail}</p>
       <p class="card-type">${obj.orderType}</p>
+<<<<<<< HEAD
       <a href="#" id="details-order--${obj.firebaseKey}">Details</a>
       <a href="#" id="edit-order--${obj.firebaseKey}">Edit</a>
       <a href="#" id="delete-order--${obj.firebaseKey}">Delete</a>
+=======
+      <a href="#" class="details-order">Details</a>
+      <a href="#" class="edit-order" id="edit-order--${obj.firebaseKey}">Edit</a>
+      <a href="#" class="delete-order">Delete</a>
+>>>>>>> main
       </div>
     </div>
     <br>`;

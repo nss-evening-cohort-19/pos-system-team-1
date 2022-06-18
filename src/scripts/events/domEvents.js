@@ -1,4 +1,4 @@
-import { deleteOrders, getOrders } from '../api/orderData';
+import { deleteOrders, getOrders, getSingleOrder } from '../api/orderData';
 import createOrderForm from '../components/forms/createAnOrderForm';
 import renderRevenue from '../components/pages/revenue';
 import { showOrders } from '../components/pages/showOrders';
@@ -23,6 +23,10 @@ const domEvents = () => {
     }
     if (e.target.id.includes('viewRevBtn')) {
       renderRevenue();
+    }
+    if (e.target.id.includes('edit-order')) {
+      const [, firebaseKey] = e.target.id.split('--');
+      getSingleOrder(firebaseKey).then((wordObject) => createOrderForm(wordObject));
     }
   });
 };
