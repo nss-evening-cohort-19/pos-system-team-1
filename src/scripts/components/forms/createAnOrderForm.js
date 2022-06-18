@@ -72,6 +72,8 @@ const createOrderForm = (obj = {}) => {
         In-Person
       </option>
     </select>
+    value="${obj.orderType || ''}"
+      required>
   </div>
   <button
     type="submit"
