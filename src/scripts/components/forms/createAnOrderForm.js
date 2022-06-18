@@ -10,7 +10,7 @@ const createOrderForm = (obj = {}) => {
     <div
       class="form-group">
       <label
-        for="title">
+        for="orderName">
         <b>
         Order Name
         </b>
@@ -26,7 +26,7 @@ const createOrderForm = (obj = {}) => {
     <div
       class="form-group">
       <label
-        for="title">
+        for="phone">
         Customer phone
       </label>
       <input
@@ -40,7 +40,7 @@ const createOrderForm = (obj = {}) => {
     <div
       class="form-group">
       <label
-        for="title">
+        for="email">
         Customer email
       </label>
       <input
@@ -53,10 +53,11 @@ const createOrderForm = (obj = {}) => {
     </div>
     <div>
       <label
-        for="title">
+        for="order-type">
         Order type
       </label>
       <select
+        id="order-type"
         class="form-select"
         aria-label="Default select example">
         <option

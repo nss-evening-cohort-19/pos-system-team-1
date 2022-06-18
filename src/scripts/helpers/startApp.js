@@ -5,7 +5,7 @@ import navbarEvents from '../events/navbarEvents';
 import logoutButton from '../components/auth/logoutButton';
 import domEvents from '../events/domEvents';
 import homeLoggedIn from '../components/pages/homeLoggedIn';
-// import formEvents from '../events/formEvents';
+import formEvents from '../events/formEvents';
 // import { showOrders } from '../components/pages/orders';
 
 const startApp = (user) => {
@@ -15,7 +15,7 @@ const startApp = (user) => {
   homeLoggedIn(user);
   domEvents(); // ADD THE EVENT LISTENTERS TO THE DOM
   navbarEvents(user); // ATTACH THE EVENT LISTENERS TO THE NAVBAR
-  //   formEvents(); // ADD FORM EVENT LISTENTERS TO THE DOM
+  formEvents(); // ADD FORM EVENT LISTENTERS TO THE DOM
 };
 
 export default startApp;
