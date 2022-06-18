@@ -65,11 +65,11 @@ const createOrderForm = (obj = {}) => {
           Select an Order Type
         </option>
         <option
-          value="1">
+          value="Phone">
           Phone
         </option>
         <option
-          value="2">
+          value="In-Person">
           In-Person
         </option>
         value="${obj.orderType || ''}"
