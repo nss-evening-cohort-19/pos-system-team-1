@@ -8,9 +8,9 @@ const domEvents = () => {
     if (e.target.id.includes('delete-order')) {
       // eslint-disable-next-line no-alert
       if (window.confirm('Want to delete?')) {
-        const [, orderFirebaseKey] = e.target.id.split('--');
+        const [, firebaseKey] = e.target.id.split('--');
         console.warn(e.target.id);
-        deleteOrders(orderFirebaseKey).then((ordersArray) => showOrders(ordersArray));
+        deleteOrders(firebaseKey).then((ordersArray) => showOrders(ordersArray));
       }
     }
   });
