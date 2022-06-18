@@ -48,6 +48,12 @@ const getClosedOrder = (uid) => new Promise((resolve, reject) => {
     resolve(closedOrders);
   }).catch((error) => reject(error));
 });
+
+const updateOrder = (orderObj) => new Promise((resolve, reject) => {
+  axios.patch(`${dbUrl}/orders/${orderObj.firebaseKey}.json`, orderObj)
+    .then(() => getOrders().then(resolve))
+    .catch(reject);
+});
 export {
   getOrders,
   deleteOrders,
