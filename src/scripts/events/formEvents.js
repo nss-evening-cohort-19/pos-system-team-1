@@ -24,7 +24,7 @@ const formEvents = () => {
         orderName: document.querySelector('#orderName').value,
         customerPhone: document.querySelector('#phone').value,
         customerEmail: document.querySelector('#email').value,
-        orderType: document.querySelector('').value,
+        orderType: document.querySelector('#order-type').value,
         orderFirebaseKey
       };
 
