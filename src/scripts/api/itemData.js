@@ -33,7 +33,7 @@ const createItem = (itemObj) => new Promise((resolve, reject) => {
   axios.post(`${dbUrl}/items.json`, itemObj)
     .then((response) => {
       const payload = { firebaseKey: response.data.name };
-      axios.patch(`${dbUrl}/orders/${response.data.name}.json`, payload)
+      axios.patch(`${dbUrl}/items/${response.data.name}.json`, payload)
         .then(() => {
           getItems(itemObj).then((data) => resolve(data));
         });
