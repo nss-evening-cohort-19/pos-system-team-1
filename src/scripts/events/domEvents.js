@@ -9,6 +9,7 @@ const domEvents = () => {
       // eslint-disable-next-line no-alert
       if (window.confirm('Want to delete?')) {
         const [, firebaseKey] = e.target.id.split('--');
+        console.warn(e.target.id);
         deleteOrders(firebaseKey).then((ordersArray) => showOrders(ordersArray));
       }
     }
