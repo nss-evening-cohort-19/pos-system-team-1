@@ -16,7 +16,7 @@ const getOrders = () => new Promise((resolve, reject) => {
 });
 
 const deleteOrders = (firebaseKey) => new Promise((resolve, reject) => {
-  axios.delete(`${dbUrl}/books/${firebaseKey}.json`)
+  axios.delete(`${dbUrl}/orders/${firebaseKey}.json`)
     .then(() => {
       getOrders().then((ordersArray) => resolve(ordersArray));
     })
@@ -25,7 +25,7 @@ const deleteOrders = (firebaseKey) => new Promise((resolve, reject) => {
 
 // FIXME: CREATE AN ORDER
 const createOrder = (orderObj) => new Promise((resolve, reject) => {
-  axios.post(`${dbUrl}/authors.json`, orderObj)
+  axios.post(`${dbUrl}/orders.json`, orderObj)
     .then((response) => {
       const payload = { firebaseKey: response.data.name };
       axios.patch(`${dbUrl}/orders/${response.data.name}.json`, payload)
