@@ -1,6 +1,5 @@
 import { deleteOrders, getOrders } from '../api/orderData';
-import { showOrders } from '../components/pages/orders';
-import viewOrders from '../components/pages/viewOrders';
+import { showOrders } from '../components/pages/showOrders';
 
 const domEvents = () => {
   document.querySelector('#view').addEventListener('click', (e) => {
@@ -14,7 +13,7 @@ const domEvents = () => {
   });
   document.querySelector('#view')
     .addEventListener('click', () => {
-      getOrders().then((orderArray) => viewOrders(orderArray));
+      getOrders().then((orderArray) => showOrders(orderArray));
     });
 };
 
