@@ -5,10 +5,10 @@ import viewOrders from '../components/pages/viewOrders';
 import homeLoggedIn from '../components/pages/homeLoggedIn';
 
 // nav bar events
-const navbarEvents = (uid) => {
+const navbarEvents = (user) => {
   // view order button click
   document.querySelector('#viewOrders').addEventListener('click', () => {
-    getOrders(uid).then((orderArray) => viewOrders(orderArray));
+    getOrders(user.uid).then((orderArray) => viewOrders(orderArray));
   });
 
   // create order button click
@@ -17,7 +17,7 @@ const navbarEvents = (uid) => {
   });
 
   document.querySelector('#navbarTitle').addEventListener('click', () => {
-    homeLoggedIn(uid);
+    homeLoggedIn(user);
   });
 };
 

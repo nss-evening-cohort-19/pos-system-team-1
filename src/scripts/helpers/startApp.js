@@ -14,7 +14,7 @@ const startApp = (user) => {
   logoutButton(); // ADD THE LOGOUT BUTTON COMPONENT
   homeLoggedIn(user);
   domEvents(); // ADD THE EVENT LISTENTERS TO THE DOM
-  navbarEvents(user.uid); // ATTACH THE EVENT LISTENERS TO THE NAVBAR
+  navbarEvents(user); // ATTACH THE EVENT LISTENERS TO THE NAVBAR
   //   formEvents(); // ADD FORM EVENT LISTENTERS TO THE DOM
 };
 
