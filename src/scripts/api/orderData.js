@@ -59,5 +59,6 @@ export {
   deleteOrders,
   createOrder,
   getSingleOrder,
-  getClosedOrder
+  getClosedOrder,
+  updateOrder
 };
