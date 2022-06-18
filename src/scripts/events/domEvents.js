@@ -1,5 +1,7 @@
+import { getItems } from '../api/itemData';
 import { deleteOrders, getOrders } from '../api/orderData';
 import createOrderForm from '../components/forms/createAnOrderForm';
+import { showItems } from '../components/pages/items';
 import renderRevenue from '../components/pages/revenue';
 import { showOrders } from '../components/pages/showOrders';
 
@@ -22,6 +24,10 @@ const domEvents = () => {
     }
     if (e.target.id.includes('viewRevBtn')) {
       renderRevenue();
+    }
+    if (e.target.id.includes('details-order')) {
+      // const [, orderFirebaseKey] = e.target.id.split('--');
+      getItems().then((itemArray) => showItems(itemArray));
     }
   });
 };

@@ -1,6 +1,8 @@
+import clearDom from '../../helpers/clearDom';
 import renderToDOM from '../../helpers/renderToDom';
 
 const renderRevenue = () => {
+  clearDom();
   const domString = `
     <div class= "rev">
       <div>
@@ -20,7 +22,7 @@ const renderRevenue = () => {
       </div>
     </div>
   `;
-  renderToDOM('#main-container', domString);
+  renderToDOM('#view', domString);
 };
 
 export default renderRevenue;
