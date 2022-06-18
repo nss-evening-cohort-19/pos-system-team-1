@@ -1,8 +1,7 @@
 import { deleteOrders, getOrders } from '../api/orderData';
-import { showOrders } from '../components/pages/orders';
-import viewOrders from '../components/pages/viewOrders';
 import createOrderForm from '../components/forms/createAnOrderForm';
 import renderRevenue from '../components/pages/revenue';
+import { showOrders } from '../components/pages/showOrders';
 
 const domEvents = () => {
   document.querySelector('#view').addEventListener('click', (e) => {
@@ -16,7 +15,7 @@ const domEvents = () => {
   });
   document.querySelector('#view').addEventListener('click', (e) => {
     if (e.target.id.includes('viewOrderBtn')) {
-      getOrders().then((orderArray) => viewOrders(orderArray));
+      getOrders().then((orderArray) => showOrders(orderArray));
     }
     if (e.target.id.includes('createOrderBtn')) {
       createOrderForm();
