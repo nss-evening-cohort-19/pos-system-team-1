@@ -42,9 +42,23 @@ const getSingleOrder = (firebaseKey) => new Promise((resolve, reject) => {
     .catch((error) => reject(error));
 });
 
+const getClosedOrder = (uid) => new Promise((resolve, reject) => {
+  getOrders(uid).then((ordersArray) => {
+    const closedOrders = ordersArray.filter((order) => order.orderStatus);
+    resolve(closedOrders);
+  }).catch((error) => reject(error));
+});
+
+const updateOrder = (orderObj) => new Promise((resolve, reject) => {
+  axios.patch(`${dbUrl}/orders/${orderObj.firebaseKey}.json`, orderObj)
+    .then(() => getOrders().then(resolve))
+    .catch(reject);
+});
 export {
   getOrders,
   deleteOrders,
   createOrder,
-  getSingleOrder
+  getSingleOrder,
+  getClosedOrder,
+  updateOrder
 };
