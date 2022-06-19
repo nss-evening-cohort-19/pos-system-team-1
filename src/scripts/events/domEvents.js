@@ -1,10 +1,8 @@
 import { getItems } from '../api/itemData';
-import { deleteOrders, getOrders } from '../api/orderData';
+import { deleteOrders, getOrders, getSingleOrder } from '../api/orderData';
 import createOrderForm from '../components/forms/createAnOrderForm';
-// import { showItems } from '../components/pages/showItems';
 import renderRevenue from '../components/pages/revenue';
 import { showOrders } from '../components/pages/showOrders';
-// import details from '../components/pages/details';
 import { showItems } from '../components/pages/showItems';
 
 const domEvents = () => {
@@ -13,6 +11,7 @@ const domEvents = () => {
       // eslint-disable-next-line no-alert
       if (window.confirm('Want to delete?')) {
         const [, firebaseKey] = e.target.id.split('--');
+        console.warn(e.target.id);
         deleteOrders(firebaseKey).then((ordersArray) => showOrders(ordersArray));
       }
     }
@@ -28,8 +27,11 @@ const domEvents = () => {
       renderRevenue();
     }
     if (e.target.id.includes('details-order')) {
-      // const [, orderFirebaseKey] = e.target.id.split('--');
       getItems().then((itemArray) => showItems(itemArray));
+    }
+    if (e.target.id.includes('edit-order')) {
+      const [, firebaseKey] = e.target.id.split('--');
+      getSingleOrder(firebaseKey).then((wordObject) => createOrderForm(wordObject));
     }
   });
 };
