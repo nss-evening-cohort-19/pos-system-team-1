@@ -23,13 +23,13 @@ const showItems = (array) => {
         <h6 class="card-price mb-2 text-muted">${obj.itemPrice}</h6>
         <hr>
         <i class="btn btn-success fas fa-eye" id="view-item-btn--${obj.firebaseKey}"></i>
-        <i class="fas fa-edit btn btn-info" id="edit-item--${obj.firebaseKey}"></i>
+        <i class="fas fa-edit btn btn-info" id="edit-item-btn--${obj.firebaseKey}"></i>
         <i class="btn btn-danger fas fa-trash-alt" id="delete-item-btn--${obj.firebaseKey}"></i>
       </div>
     </div>
     `;
     });
-    renderToDOM('#store', domString);
+    renderToDOM('#view', domString);
   } else {
     emptyItems();
   }

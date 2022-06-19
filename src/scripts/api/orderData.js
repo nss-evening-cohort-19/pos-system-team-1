@@ -35,7 +35,6 @@ const createOrder = (orderObj) => new Promise((resolve, reject) => {
     }).catch(reject);
 });
 
-// FIXME: GET SINGLE ORDER
 const getSingleOrder = (firebaseKey) => new Promise((resolve, reject) => {
   axios.get(`${dbUrl}/orders/${firebaseKey}.json`)
     .then((response) => resolve(response.data))

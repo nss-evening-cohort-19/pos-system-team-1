@@ -1,13 +1,13 @@
 {
   "-MiBtwf1BwN9pGavQeR3" :{ 
-    "itemFirebaseKey" : "-MiBtwf1BwN9pGavQeR3",
-    "firebaseKey" : "-TWOsfuTafbED8eAULxV",
+    "firebaseKey" : "-MiBtwf1BwN9pGavQeR3",
+    "order_id" : "-TWOsfuTafbED8eAULxV",
     "itemName" : "Stuffed Crust",
     "itemPrice" : 20.00
   },
   "-NiBsfuTafbEQ7eAUL9V" :{ 
-    "itemFirebaseKey" : "-NiBsfuTafbEQ7eAUL9V",
-    "firebaseKey" : "-MiBsfuTafbEQ7eAULxV",
+    "firebaseKey" : "-NiBsfuTafbEQ7eAUL9V",
+    "order_id" : "-MiBsfuTafbEQ7eAULxV",
     "itemName" : "Wings",
     "itemPrice" : 10.00
   }
