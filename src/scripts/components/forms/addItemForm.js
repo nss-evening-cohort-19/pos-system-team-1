@@ -13,13 +13,13 @@ class="mb-4">
   <label
     for="title">
     <b>
-      Order Name
+      Item Name
     </b>
   </label>
   <input
     type="text"
     class="form-control"
-    id="orderName"
+    id="itemName"
     aria-describedby="cardTitle"
     value="${obj.itemName || ''}"
     required>
