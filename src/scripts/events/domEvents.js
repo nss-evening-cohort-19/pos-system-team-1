@@ -1,6 +1,7 @@
 import { getItems } from '../api/itemData';
 import { deleteOrders, getOrders, getSingleOrder } from '../api/orderData';
 import createOrderForm from '../components/forms/createAnOrderForm';
+import addItemForm from '../components/forms/addItemForm';
 import renderRevenue from '../components/pages/revenue';
 import { showOrders } from '../components/pages/showOrders';
 import { showItems } from '../components/pages/showItems';
@@ -22,6 +23,9 @@ const domEvents = () => {
     }
     if (e.target.id.includes('createOrderBtn')) {
       createOrderForm();
+    }
+    if (e.target.id.includes('add-item-btn')) {
+      addItemForm();
     }
     if (e.target.id.includes('viewRevBtn')) {
       renderRevenue();
