@@ -1,9 +1,11 @@
 import { getItems } from '../api/itemData';
 import { deleteOrders, getOrders } from '../api/orderData';
 import createOrderForm from '../components/forms/createAnOrderForm';
-import { showItems } from '../components/pages/items';
+// import { showItems } from '../components/pages/showItems';
 import renderRevenue from '../components/pages/revenue';
 import { showOrders } from '../components/pages/showOrders';
+// import details from '../components/pages/details';
+import { showItems } from '../components/pages/showItems';
 
 const domEvents = () => {
   document.querySelector('#view').addEventListener('click', (e) => {
