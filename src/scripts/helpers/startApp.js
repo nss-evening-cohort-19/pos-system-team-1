@@ -6,7 +6,7 @@ import logoutButton from '../components/auth/logoutButton';
 import domEvents from '../events/domEvents';
 import homeLoggedIn from '../components/pages/homeLoggedIn';
 import formEvents from '../events/formEvents';
-// import { showOrders } from '../components/pages/orders';
+import filterEvents from '../events/filterEvents';
 
 const startApp = (user) => {
   domBuilder();// BUILD THE DOM
@@ -16,6 +16,7 @@ const startApp = (user) => {
   domEvents(); // ADD THE EVENT LISTENTERS TO THE DOM
   navbarEvents(user); // ATTACH THE EVENT LISTENERS TO THE NAVBAR
   formEvents(); // ADD FORM EVENT LISTENTERS TO THE DOM
+  filterEvents(user);
 };
 
 export default startApp;

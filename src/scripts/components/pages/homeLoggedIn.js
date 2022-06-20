@@ -4,10 +4,36 @@ import renderToDOM from '../../helpers/renderToDom';
 const homeLoggedIn = (user) => {
   clearDom();
   const domString = `
-  <h1>Welcome ${user.displayName}!</h1>
-  <button type="button" class="btn btn-success" id="viewOrderBtn">View Orders</button>
-  <button type="button" class="btn btn-warning" id="createOrderBtn">Create an Order</button>
-  <button type="button" class="btn btn-danger" id="viewRevBtn">View Revenue</button>
+  <div>
+    <h1>
+      Welcome ${user.displayName}!
+    </h1>
+    <div
+      style='display: flex;flex-direction: column;'>
+      <button
+        type="button"
+        class="btn btn-success"
+        style='margin: 10px 0px;'
+        id="viewOrderBtn">
+        View Orders
+      </button>
+      <button
+        type="button"
+        class="btn btn-warning"
+        style='margin: 10px 0px;'
+        id="createOrderBtn">
+        Create an Order
+      </button>
+      <button
+        type="button"
+        class="btn btn-danger"
+        style='margin: 10px 0px;'
+        id="viewRevBtn">
+        View Revenue
+      </button>
+    </div>
+  </div>
+  
   `;
   renderToDOM('#view', domString);
 };
