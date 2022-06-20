@@ -3,7 +3,7 @@ import createOrderForm from '../components/forms/createAnOrderForm';
 import renderRevenue from '../components/pages/revenue';
 import { showOrders } from '../components/pages/showOrders';
 import { getItems } from '../api/itemData';
-import { showItems } from '../components/pages/items';
+import { showItems } from '../components/pages/showItems';
 
 const domEvents = () => {
   document.querySelector('#view').addEventListener('click', (e) => {
