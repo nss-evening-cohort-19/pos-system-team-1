@@ -1,5 +1,5 @@
-import renderToDOM from '../../helpers/renderToDom';
 import clearDom from '../../helpers/clearDom';
+import renderToDOM from '../../helpers/renderToDom';
 
 const renderRevenue = () => {
   clearDom();

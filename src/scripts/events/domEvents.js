@@ -1,7 +1,11 @@
+import { getItems, getSingleItem } from '../api/itemData';
 import { deleteOrders, getOrders, getSingleOrder } from '../api/orderData';
 import createOrderForm from '../components/forms/createAnOrderForm';
+import addItemForm from '../components/forms/addItemForm';
+import addPaymentForm from '../components/forms/addPaymentForm';
 import renderRevenue from '../components/pages/revenue';
 import { showOrders } from '../components/pages/showOrders';
+import { showItems } from '../components/pages/showItems';
 
 const domEvents = () => {
   document.querySelector('#view').addEventListener('click', (e) => {
@@ -21,12 +25,27 @@ const domEvents = () => {
     if (e.target.id.includes('createOrderBtn')) {
       createOrderForm();
     }
+    if (e.target.id.includes('add-item-btn')) {
+      addItemForm();
+    }
     if (e.target.id.includes('viewRevBtn')) {
       renderRevenue();
+    }
+    if (e.target.id.includes('details-order')) {
+      getItems().then((itemArray) => showItems(itemArray));
     }
     if (e.target.id.includes('edit-order')) {
       const [, firebaseKey] = e.target.id.split('--');
       getSingleOrder(firebaseKey).then((wordObject) => createOrderForm(wordObject));
+    }
+    if (e.target.id.includes('checkout')) {
+      addPaymentForm();
+    }
+  });
+  document.querySelector('#card-container').addEventListener('click', (e) => {
+    if (e.target.id.includes('edit-item')) {
+      const [, firebaseKey] = e.target.id.split('--');
+      getSingleItem(firebaseKey).then((itemObject) => addItemForm(itemObject));
     }
   });
 };
