@@ -53,11 +53,23 @@ const updateOrder = (orderObj) => new Promise((resolve, reject) => {
     .then(() => getOrders().then(resolve))
     .catch(reject);
 });
+
+const filterOrder = (uid, searchTerm) => new Promise((resolve, reject) => {
+  getOrders(uid).then((orders) => {
+    const filteredOrders = orders.filter((order) => order.orderName.toLowerCase() === searchTerm.toLowerCase() || order.customerPhone.toLowerCase() === searchTerm.toLowerCase());
+
+    if (filteredOrders && filteredOrders.length > 0) {
+      resolve(filteredOrders);
+    } else { resolve([]); }
+  }).catch((error) => reject(error));
+});
+
 export {
   getOrders,
   deleteOrders,
   createOrder,
   getSingleOrder,
   getClosedOrder,
-  updateOrder
+  updateOrder,
+  filterOrder,
 };
