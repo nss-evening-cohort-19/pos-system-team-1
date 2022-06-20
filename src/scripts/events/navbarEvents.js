@@ -20,5 +20,4 @@ const navbarEvents = (user) => {
     homeLoggedIn(user);
   });
 };
-
 export default navbarEvents;

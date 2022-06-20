@@ -66,12 +66,14 @@ const navBar = () => {
               style="margin: 0 20px;"
               role="search">
               <input
+                id="searchBar"
                 class="form-control me-2"
                 style="margin-right: 4px !important;"
                 type="search"
-                placeholder="Search"
+                placeholder="Enter Name or Phone"
                 aria-label="Search">
               <button
+                id = "searchBtn"
                 class="btn btn-outline-secondary"
                 type="submit">
                 Search
