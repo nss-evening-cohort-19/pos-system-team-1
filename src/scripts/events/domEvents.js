@@ -38,12 +38,6 @@ const domEvents = () => {
       const [, firebaseKey] = e.target.id.split('--');
       getSingleOrder(firebaseKey).then((wordObject) => createOrderForm(wordObject));
     }
-<<<<<<< HEAD
-    if (e.target.id.includes('order-details')) {
-      const [, firebaseKey] = e.target.id.split('--');
-      console.warn(e.target.id);
-      getItems(firebaseKey).then((orderItemsArray) => showItems(orderItemsArray));
-=======
     if (e.target.id.includes('checkout')) {
       addPaymentForm();
     }
@@ -52,7 +46,6 @@ const domEvents = () => {
     if (e.target.id.includes('edit-item')) {
       const [, firebaseKey] = e.target.id.split('--');
       getSingleItem(firebaseKey).then((itemObject) => addItemForm(itemObject));
->>>>>>> main
     }
   });
 };
