@@ -7,7 +7,7 @@ const domBuilder = () => {
     <div id="filter-container"></div>
     <div id="form-container"></div>
     <div id="card-container"></div>
-    <div id="view"></div>
+    <div id="view">
   </div>`;
 
   renderToDOM('#app', domString);
