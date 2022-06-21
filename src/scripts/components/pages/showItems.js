@@ -1,5 +1,5 @@
 import { getItems } from '../../api/itemData';
-import clearDom from '../../helpers/clearDom';
+// import clearDom from '../../helpers/clearDom';
 import renderToDOM from '../../helpers/renderToDom';
 
 const emptyItems = () => {
@@ -8,7 +8,7 @@ const emptyItems = () => {
 };
 
 const showItems = (array) => {
-  clearDom();
+  // clearDom();
   getItems().then((itemArray) => {
     let sum = 0;
 
@@ -18,7 +18,7 @@ const showItems = (array) => {
 
     if (array.length) {
       let domString = `
-      <h1>Total $${sum}</h1>
+      <div class="totSum"><h1>Total $${sum}</h1></div>
     `;
       array.forEach((obj) => {
         domString += `
