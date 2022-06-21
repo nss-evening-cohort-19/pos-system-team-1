@@ -1,4 +1,4 @@
-import { getItems, getSingleItem } from '../api/itemData';
+import { getSingleItem } from '../api/itemData';
 import { deleteOrders, getOrders, getSingleOrder } from '../api/orderData';
 import createOrderForm from '../components/forms/createAnOrderForm';
 import addItemForm from '../components/forms/addItemForm';
@@ -6,6 +6,7 @@ import addPaymentForm from '../components/forms/addPaymentForm';
 import renderRevenue from '../components/pages/revenue';
 import { showOrders } from '../components/pages/showOrders';
 import { showItems } from '../components/pages/showItems';
+import viewOrderDetails from '../api/mergedData';
 
 const domEvents = () => {
   document.querySelector('#view').addEventListener('click', (e) => {
@@ -32,7 +33,8 @@ const domEvents = () => {
       renderRevenue();
     }
     if (e.target.id.includes('details-order')) {
-      getItems().then((itemArray) => showItems(itemArray));
+      const [, firebaseKey] = e.target.id.split('--');
+      viewOrderDetails(firebaseKey).then((orderItemsObject) => showItems(orderItemsObject));
     }
     if (e.target.id.includes('edit-order')) {
       const [, firebaseKey] = e.target.id.split('--');
