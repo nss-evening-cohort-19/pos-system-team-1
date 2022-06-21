@@ -11,7 +11,7 @@ class="mb-4">
 <div
   class="form-group">
   <label
-    for="title">
+    for="itemName">
     <b>
       Item Name
     </b>
@@ -19,7 +19,7 @@ class="mb-4">
   <input
     type="text"
     class="form-control"
-    id="orderName"
+    id="itemName"
     aria-describedby="cardTitle"
     value="${obj.itemName || ''}"
     required>
@@ -27,13 +27,13 @@ class="mb-4">
 <div
   class="form-group">
   <label
-    for="title">
+    for="itemPrice">
     <b>
       Item Price
     </b>
   </label>
   <input
-    type="text"
+    type="number"
     class="form-control"
     id="itemPrice"
     aria-describedby="cardTitle"
