@@ -6,7 +6,8 @@ const viewItemsByOrder = (firebaseKey) => new Promise((resolve, reject) => {
     .then((orderObject) => {
       getItemsByOrder(orderObject.firebaseKey)
         .then((itemObject) => {
-          resolve({ orderObject, ...itemObject });
+          resolve(Object.values(itemObject));
+          // ({ orderObject, ...itemObject });
         });
     }).catch((error) => reject(error));
 });

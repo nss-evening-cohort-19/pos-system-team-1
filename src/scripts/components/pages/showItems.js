@@ -1,4 +1,4 @@
-import { getItems } from '../../api/itemData';
+import { getItemsByOrder } from '../../api/itemData';
 import clearDom from '../../helpers/clearDom';
 import renderToDOM from '../../helpers/renderToDom';
 
@@ -7,9 +7,9 @@ const emptyItems = () => {
   renderToDOM('#store', domString);
 };
 
-const showItems = (array) => {
+const showItems = (array, firebaseKey) => {
   clearDom();
-  getItems().then((itemArray) => {
+  getItemsByOrder(firebaseKey).then((itemArray) => {
     let sum = 0;
 
     itemArray.forEach((item) => {
@@ -22,10 +22,10 @@ const showItems = (array) => {
     `;
       array.forEach((obj) => {
         domString += `
-        <div class="item-card" style="width: 18rem;">
+        <div class="card" style="width: 18rem;">
           <div class="card-body">
             <h5 class="card-title">${obj.itemName}</h5>
-            <h6 class="card-price mb-2 text-muted">$${obj.itemPrice}</h6>
+            <h6 class="card-price mb-2 text-muted">${obj.itemPrice}</h6>
             <hr>
             <i class="fas fa-edit btn btn-info" id="edit-item--${obj.firebaseKey}"></i>
             <i class="btn btn-danger fas fa-trash-alt" id="delete-item-btn--${obj.firebaseKey}"></i>
