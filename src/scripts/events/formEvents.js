@@ -1,4 +1,6 @@
+import { updateItem } from '../api/itemData';
 import { createOrder, updateOrder } from '../api/orderData';
+import { showItems } from '../components/pages/showItems';
 import { showOrders } from '../components/pages/showOrders';
 
 const formEvents = () => {
@@ -17,7 +19,6 @@ const formEvents = () => {
       createOrder(orderObject).then((ordersArray) => showOrders(ordersArray));
     }
 
-    // TODO: CLICK EVENT FOR EDITING A Card
     if (e.target.id.includes('update-order')) {
       const [, firebaseKey] = e.target.id.split('--');
       const orderObject = {
@@ -30,6 +31,16 @@ const formEvents = () => {
       };
 
       updateOrder(orderObject).then(showOrders);
+    }
+
+    if (e.target.id.includes('update-item')) {
+      const [, firebaseKey] = e.target.id.split('--');
+      const itemObject = {
+        itemName: document.querySelector('#itemName').value,
+        itemPrice: parseInt(document.querySelector('#itemPrice').value, 10),
+        firebaseKey,
+      };
+      updateItem(itemObject).then(showItems);
     }
   });
 };
