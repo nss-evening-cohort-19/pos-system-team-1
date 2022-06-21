@@ -1,4 +1,4 @@
-orderObject.order_idimport { getItemsByOrder } from './itemData';
+import { getItemsByOrder } from './itemData';
 import { getSingleOrder } from './orderData';
 
 const viewItemsByOrder = (firebaseKey) => new Promise((resolve, reject) => {

@@ -25,7 +25,40 @@ const showOrders = (array) => {
     </div>
     <br>`;
     });
-    renderToDOM('#view', domString);
+
+    const filterButtonStr = `
+      <div>
+        <div
+          class="form-check form-check-inline">
+          <input
+            class="form-check-input"
+            type="radio"
+            name="inlineRadioOptions"
+            id="oderStatusOpen"
+            value="oderStatusOpen">
+            <label
+              class="form-check-label"
+              for="oderStatusOpen">
+              Open
+            </label>
+        </div>
+        <div
+          class="form-check form-check-inline">
+          <input
+            class="form-check-input"
+            type="radio"
+            name="inlineRadioOptions"
+            id="oderStatusClosed"
+            value="oderStatusClosed">
+            <label
+              class="form-check-label"
+              for="oderStatusClosed">
+              Closed
+            </label>
+        </div>
+      </div>`;
+
+    renderToDOM('#view', `${filterButtonStr}${domString}`);
   } else {
     emptyOrders();
   }
