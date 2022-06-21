@@ -1,4 +1,4 @@
-import { getItems } from '../../api/itemData';
+import { getItemsByOrder } from '../../api/itemData';
 import clearDom from '../../helpers/clearDom';
 import renderToDOM from '../../helpers/renderToDom';
 
@@ -7,9 +7,9 @@ const emptyItems = () => {
   renderToDOM('#store', domString);
 };
 
-const showItems = (array) => {
+const showItems = (array, firebaseKey) => {
   clearDom();
-  getItems().then((itemArray) => {
+  getItemsByOrder(firebaseKey).then((itemArray) => {
     let sum = 0;
 
     itemArray.forEach((item) => {
