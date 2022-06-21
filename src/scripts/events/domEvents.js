@@ -1,11 +1,12 @@
 /* eslint-disable no-alert */
-import { deleteSingleItem, getItems, getSingleItem } from '../api/itemData';
+import { deleteSingleItem, getSingleItem } from '../api/itemData';
 import { deleteOrders, getOrders, getSingleOrder } from '../api/orderData';
 import createOrderForm from '../components/forms/createAnOrderForm';
 import addItemForm from '../components/forms/addItemForm';
 import addPaymentForm from '../components/forms/addPaymentForm';
 import renderRevenue from '../components/pages/revenue';
 import { showOrders } from '../components/pages/showOrders';
+import viewItemsByOrder from '../api/mergedData';
 import { showItems } from '../components/pages/showItems';
 
 const domEvents = () => {
@@ -31,8 +32,9 @@ const domEvents = () => {
     if (e.target.id.includes('viewRevBtn')) {
       renderRevenue();
     }
-    if (e.target.id.includes('order-details')) {
-      getItems().then((itemArray) => showItems(itemArray));
+    if (e.target.id.includes('details-order')) {
+      const [, firebaseKey] = e.target.id.split('--');
+      viewItemsByOrder(firebaseKey).then((itemsArray) => showItems(itemsArray, firebaseKey));
     }
     if (e.target.id.includes('edit-order')) {
       const [, firebaseKey] = e.target.id.split('--');

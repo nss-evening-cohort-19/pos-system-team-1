@@ -53,11 +53,17 @@ const updateItem = (itemObj) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
+const getItemsByOrder = (firebaseKey) => new Promise((resolve, reject) => {
+  axios.get(`${dbUrl}/items.json?orderBy="order_id"&equalTo="${firebaseKey}"`)
+    .then((response) => resolve(Object.values(response.data)))
+    .catch((error) => reject(error));
+});
 export {
   getItems,
   getSingleItem,
   deleteItems,
   deleteSingleItem,
   createItem,
-  updateItem
+  updateItem,
+  getItemsByOrder
 };

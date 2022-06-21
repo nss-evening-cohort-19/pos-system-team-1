@@ -11,8 +11,13 @@
     "itemName" : "Wings",
     "itemPrice" : 10.00
   },
+<<<<<<< HEAD
   "-MiBulenBnY8by9Xn7q1" :{ 
     "firebaseKey" : "-MiBulenBnY8by9Xn7q1",
+=======
+  "-MiBulen34ef9Xn7q1" :{ 
+    "firebaseKey" : "-MiBulen34ef9Xn7q1",
+>>>>>>> main
     "order_id" : "-MiBsfuTafbEQ7eAULxV",
     "itemName" : "Bread Sticks",
     "itemPrice" : 9.00
