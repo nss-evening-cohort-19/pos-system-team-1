@@ -8,11 +8,11 @@ export const filterSearchEvents = (user) => {
   });
 };
 
- const filterClosedStatus = (user) => {
-    document.querySelector('#searchBtn').addEventListener('click', () => {
-      const searchTerm = document.getElementById('searchBar').value;
-      filterOrder(user.uid, searchTerm).then((orderArray) => showOrders(orderArray));
-    }); 
-};
+//  const filterClosedStatus = (user) => {
+//     document.querySelector('#searchBtn').addEventListener('click', () => {
+//       const searchTerm = document.getElementById('searchBar').value;
+//       filterOrder(user.uid, searchTerm).then((orderArray) => showOrders(orderArray));
+//     });
+// };
 
-export {filterSearchEvents, filterClosedStatus };
+export default filterSearchEvents;
