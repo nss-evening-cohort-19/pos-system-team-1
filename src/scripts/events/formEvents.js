@@ -1,4 +1,4 @@
-import { updateItem } from '../api/itemData';
+import { createItem, updateItem } from '../api/itemData';
 import { createOrder, updateOrder } from '../api/orderData';
 import { showItems } from '../components/pages/showItems';
 import { showOrders } from '../components/pages/showOrders';
@@ -41,6 +41,14 @@ const formEvents = () => {
         firebaseKey,
       };
       updateItem(itemObject).then(showItems);
+    }
+
+    if (e.target.id.includes('submit-item')) {
+      const itemObject = {
+        itemName: document.querySelector('#itemName').value,
+        itemPrice: parseInt(document.querySelector('#itemPrice').value, 10),
+      };
+      createItem(itemObject).then((itemsArray) => showItems(itemsArray));
     }
   });
 };
