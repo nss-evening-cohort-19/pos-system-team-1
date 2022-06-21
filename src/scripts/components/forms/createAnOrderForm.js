@@ -2,6 +2,7 @@ import clearDom from '../../helpers/clearDom';
 import renderToDOM from '../../helpers/renderToDom';
 
 const createOrderForm = (obj = {}) => {
+  console.warn(obj.orderType);
   clearDom();
   const domString = `<form
     id="${obj.firebaseKey ? `update-order--${obj.firebaseKey}` : 'submit-order'}"
@@ -59,20 +60,22 @@ const createOrderForm = (obj = {}) => {
       <select
         id="order-type"
         class="form-select"
+        value="${obj.orderType || ''}"
         aria-label="Default select example">
         <option
-          selected>
+          ${obj.orderType !== 'phone' || obj.orderType !== 'In-Person' ? 'Selected' : ''}>
           Select an Order Type
         </option>
         <option
-          value="Phone">
+          ${obj.orderType === 'phone' ? 'Selected' : ''}
+          value="phone">
           Phone
         </option>
         <option
+          ${obj.orderType === 'In-Person' ? 'Selected' : ''}
           value="In-Person">
           In-Person
         </option>
-        value="${obj.orderType || ''}"
       </select>
       
     </div>
