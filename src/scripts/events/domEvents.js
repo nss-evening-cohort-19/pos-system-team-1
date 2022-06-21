@@ -36,7 +36,7 @@ const domEvents = () => {
     }
     if (e.target.id.includes('edit-order')) {
       const [, firebaseKey] = e.target.id.split('--');
-      getSingleOrder(firebaseKey).then((wordObject) => createOrderForm(wordObject));
+      getSingleOrder(firebaseKey).then((orderObject) => createOrderForm(orderObject));
     }
     if (e.target.id.includes('checkout')) {
       addPaymentForm();
