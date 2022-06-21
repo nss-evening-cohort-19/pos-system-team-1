@@ -31,7 +31,7 @@ const domEvents = () => {
     if (e.target.id.includes('viewRevBtn')) {
       renderRevenue();
     }
-    if (e.target.id.includes('details-order')) {
+    if (e.target.id.includes('order-details')) {
       getItems().then((itemArray) => showItems(itemArray));
     }
     if (e.target.id.includes('edit-order')) {

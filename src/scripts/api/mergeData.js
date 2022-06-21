@@ -9,6 +9,7 @@ const viewItemDetails = (firebaseKey) => new Promise((resolve, reject) => {
       });
     }).catch((error) => reject(error));
 });
+
 const viewOrderDetails = (firebaseKey) => new Promise((resolve, reject) => {
   getSingleOrder(firebaseKey)
     .then((orderObject) => {

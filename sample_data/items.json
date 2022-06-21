@@ -7,8 +7,44 @@
   },
   "-NiBsfuTafbEQ7eAUL9V" :{ 
     "firebaseKey" : "-NiBsfuTafbEQ7eAUL9V",
-    "order_id" : "-MiBsfuTafbEQ7eAULxV",
+    "order_id" : "-TWOsfuTafbED8eAULx",
     "itemName" : "Wings",
     "itemPrice" : 10.00
+  },
+  "-MiBulenBnY8by9Xn7q1" :{ 
+    "firebaseKey" : "-MiBulenBnY8by9Xn7q1",
+    "order_id" : "-MiBsfuTafbEQ7eAULxV",
+    "itemName" : "Bread Sticks",
+    "itemPrice" : 9.00
+  },
+  "-MiBsfuTafbEQ7erMLxV" :{ 
+    "firebaseKey" : "-MiBsfuTafbEQ7erMLxV",
+    "order_id" : "-MiBulenBnY8by9Xn7q1",
+    "itemName" : "Mozarella Sticks",
+    "itemPrice" : 7.00
+  },
+  "-AsBNsfuTafbEQ7eAULxV" :{ 
+    "firebaseKey" : "-AsBNsfuTafbEQ7eAULxV",
+    "order_id" : "-MiBsfuTafbEQ7eAULxV",
+    "itemName" : "Coke",
+    "itemPrice" : 4.00
+  },
+  "-MiBsfuTjnOEQ7eAULdv" :{ 
+    "firebaseKey" : "-MiBsfuTjnOEQ7eAULdv",
+    "order_id" : "-MiBsfuTafbEQ7eAULxV",
+    "itemName" : "Mtn Dew",
+    "itemPrice" : 4.00
+  },
+  "-MiBsfuTafbrv7eAU34" :{ 
+    "firebaseKey" : "-MiBsfuTafbrv7eAU34",
+    "order_id" : "-MiBsfuTafbEQ7eAULxV",
+    "itemName" : "Personal Size Pizza",
+    "itemPrice" : 12.00
+  },
+  "-DitMfuTafbrv75384" :{ 
+    "firebaseKey" : "-DitMfuTafbrv75384",
+    "order_id" : "-MiBulenBnY8by9Xn7q1",
+    "itemName" : "Xtra Large HHP+W Pizza",
+    "itemPrice" : 40.00
   }
 }
