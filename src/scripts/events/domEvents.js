@@ -34,7 +34,7 @@ const domEvents = () => {
     }
     if (e.target.id.includes('details-order')) {
       const [, firebaseKey] = e.target.id.split('--');
-      viewItemsByOrder(firebaseKey).then((orderItemsObject) => console.warn(orderItemsObject));
+      viewItemsByOrder(firebaseKey).then((orderItemsObject) => showItems(orderItemsObject));
     }
     if (e.target.id.includes('edit-order')) {
       const [, firebaseKey] = e.target.id.split('--');
