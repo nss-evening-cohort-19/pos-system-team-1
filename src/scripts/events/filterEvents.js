@@ -8,4 +8,11 @@ export const filterSearchEvents = (user) => {
   });
 };
 
-export default filterSearchEvents;
+ const filterClosedStatus = (user) => {
+    document.querySelector('#searchBtn').addEventListener('click', () => {
+      const searchTerm = document.getElementById('searchBar').value;
+      filterOrder(user.uid, searchTerm).then((orderArray) => showOrders(orderArray));
+    }); 
+};
+
+export {filterSearchEvents, filterClosedStatus };

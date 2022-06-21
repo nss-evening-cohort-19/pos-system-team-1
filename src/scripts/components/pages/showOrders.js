@@ -34,11 +34,11 @@ const showOrders = (array) => {
             class="form-check-input"
             type="radio"
             name="inlineRadioOptions"
-            id="oderStatusOpen"
-            value="oderStatusOpen">
+            id="orderStatusOpen"
+            value="orderStatusOpen">
             <label
               class="form-check-label"
-              for="oderStatusOpen">
+              for="orderStatusOpen">
               Open
             </label>
         </div>
@@ -48,11 +48,11 @@ const showOrders = (array) => {
             class="form-check-input"
             type="radio"
             name="inlineRadioOptions"
-            id="oderStatusClosed"
-            value="oderStatusClosed">
+            id="orderStatusClosed"
+            value="orderStatusClosed">
             <label
               class="form-check-label"
-              for="oderStatusClosed">
+              for="orderStatusClosed">
               Closed
             </label>
         </div>
