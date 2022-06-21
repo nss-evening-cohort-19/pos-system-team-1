@@ -10,10 +10,12 @@ const emptyItems = () => {
 const showItems = (array) => {
   clearDom();
   getItems().then((itemArray) => {
-    const sum = itemArray.reduce((accumulator, curr) => accumulator.itemPrice + curr.itemPrice);
+    const sum = itemArray.reduce((accumulator, curr) => accumulator.itemPrice + curr.itemPrice, 0);
+    console.warn(sum);
+    console.warn(itemArray);
     if (array.length) {
       let domString = `
-      <h1>Total $${sum}</h1>
+      <h1>Total ${sum}</h1>
     `;
       array.forEach((obj) => {
         domString += `
