@@ -1,4 +1,5 @@
-import { getSingleItem } from '../api/itemData';
+/* eslint-disable no-alert */
+import { deleteSingleItem, getSingleItem } from '../api/itemData';
 import { deleteOrders, getOrders, getSingleOrder } from '../api/orderData';
 import createOrderForm from '../components/forms/createAnOrderForm';
 import addItemForm from '../components/forms/addItemForm';
@@ -6,12 +7,11 @@ import addPaymentForm from '../components/forms/addPaymentForm';
 import renderRevenue from '../components/pages/revenue';
 import { showOrders } from '../components/pages/showOrders';
 import viewItemsByOrder from '../api/mergedData';
-// import { showItems } from '../components/pages/showItems';
+import { showItems } from '../components/pages/showItems';
 
 const domEvents = () => {
   document.querySelector('#view').addEventListener('click', (e) => {
     if (e.target.id.includes('delete-order')) {
-      // eslint-disable-next-line no-alert
       if (window.confirm('Want to delete?')) {
         const [, firebaseKey] = e.target.id.split('--');
         console.warn(e.target.id);
@@ -44,10 +44,17 @@ const domEvents = () => {
       addPaymentForm();
     }
   });
+
   document.querySelector('#card-container').addEventListener('click', (e) => {
     if (e.target.id.includes('edit-item')) {
       const [, firebaseKey] = e.target.id.split('--');
       getSingleItem(firebaseKey).then((itemObject) => addItemForm(itemObject));
+    }
+    if (e.target.id.includes('delete-item-btn')) {
+      if (window.confirm('Want to delete?')) {
+        const [, firebaseKey] = e.target.id.split('--');
+        deleteSingleItem(firebaseKey).then((itemsArray) => showItems(itemsArray));
+      }
     }
   });
 };
