@@ -5,8 +5,8 @@ import addItemForm from '../components/forms/addItemForm';
 import addPaymentForm from '../components/forms/addPaymentForm';
 import renderRevenue from '../components/pages/revenue';
 import { showOrders } from '../components/pages/showOrders';
-import { showItems } from '../components/pages/showItems';
-import viewOrderDetails from '../api/mergedData';
+import viewItemsByOrder from '../api/mergedData';
+// import { showItems } from '../components/pages/showItems';
 
 const domEvents = () => {
   document.querySelector('#view').addEventListener('click', (e) => {
@@ -34,7 +34,7 @@ const domEvents = () => {
     }
     if (e.target.id.includes('details-order')) {
       const [, firebaseKey] = e.target.id.split('--');
-      viewOrderDetails(firebaseKey).then((orderItemsObject) => showItems(orderItemsObject));
+      viewItemsByOrder(firebaseKey).then((orderItemsObject) => console.warn(orderItemsObject));
     }
     if (e.target.id.includes('edit-order')) {
       const [, firebaseKey] = e.target.id.split('--');

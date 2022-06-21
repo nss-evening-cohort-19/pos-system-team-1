@@ -4,10 +4,9 @@ import { getSingleOrder } from './orderData';
 const viewItemsByOrder = (firebaseKey) => new Promise((resolve, reject) => {
   getSingleOrder(firebaseKey)
     .then((orderObject) => {
-      getItemsByOrder(orderObject.order_id);
-      console.warn(orderObject.order_id)
+      getItemsByOrder(orderObject.firebaseKey)
         .then((itemObject) => {
-          resolve({ itemObject, ...orderObject });
+          resolve({ orderObject, ...itemObject });
         });
     }).catch((error) => reject(error));
 });
