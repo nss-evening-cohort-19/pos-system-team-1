@@ -41,7 +41,8 @@ const domEvents = () => {
       getSingleOrder(firebaseKey).then((orderObject) => createOrderForm(orderObject));
     }
     if (e.target.id.includes('checkout')) {
-      addPaymentForm();
+      const orderId = e.target.id.split('checkout--')[1];
+      addPaymentForm({ firebaseKey: orderId });
     }
   });
 
