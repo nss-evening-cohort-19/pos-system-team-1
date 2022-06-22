@@ -40,7 +40,7 @@ const formEvents = () => {
         itemPrice: parseInt(document.querySelector('#itemPrice').value, 10),
         firebaseKey,
       };
-      updateItem(itemObject).then(showItems);
+      updateItem(itemObject).then((itemsArray) => showItems(itemsArray));
     }
 
     if (e.target.id.includes('submit-item')) {
