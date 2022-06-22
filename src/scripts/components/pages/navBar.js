@@ -1,5 +1,5 @@
 import renderToDOM from '../../helpers/renderToDom';
-import pizzaImg from '../../../images/pizza.png';
+import vinylImg from '../../../images/vinyl.gif';
 
 const navBar = () => {
   const domString = `
@@ -14,7 +14,7 @@ const navBar = () => {
           class="navbar-brand title" href="#" id="navbarTitle"
           style="font-weight: bold;font-family: cursive; font-size: 28px;display: flex;align-items: center;">
           <img
-               src=${pizzaImg}
+               class="record" src=${vinylImg}
             style="height: 45px;margin-right: 8px;">
           Hip-Hop Pizzas
         </a>

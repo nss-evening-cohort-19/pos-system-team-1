@@ -3,18 +3,18 @@
 
 
 body {
-  background-color: antiquewhite;
+  background-color: rgb(156, 154, 152);
   color: brown;
   text-align: center;
   margin-top: 100px;
 }
   .card-body{
     background-color: #fff;
-    border: 3px solid rgb(29, 19, 229);
+    border: 3px solid #7411d7;
     border-radius: 10%;
     color: rgb(8, 8, 8);
     width: 240px;
-    margin: 5px;
+    margin: 20px;
 };
 
 #view {
@@ -38,4 +38,7 @@ body {
 }
 img{
   background-color: transparent;
+}
+.record{
+  border-radius: 25%;
 }
