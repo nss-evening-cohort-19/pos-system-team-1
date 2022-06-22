@@ -1,11 +1,11 @@
 import renderToDOM from '../../helpers/renderToDom';
-import pizzaImg from '../../../images/pizza.png';
 import logoutButton from '../auth/logoutButton';
+import vinylImg from '../../../images/vinyl.gif';
 
 const navBar = () => {
   const domString = `
     <nav
-      class="navbar fixed-top navbar-expand-lg bg-dark mb-5"
+      class="navbar fixed-top navbar-expand-lg mb-5"
       style="box-shadow: 0px 2px 5px #777;background-color: white !important;"
       id="navBar">
       <div
@@ -13,9 +13,9 @@ const navBar = () => {
         style="align-items: center;">
         <a
           class="navbar-brand title" href="#" id="navbarTitle"
-          style="font-weight: bold;font-size: 28px;display: flex;align-items: center;">
+          style="font-weight: bold;font-family: cursive; font-size: 28px;display: flex;align-items: center;">
           <img
-               src=${pizzaImg}
+               class="record" src=${vinylImg}
             style="height: 45px;margin-right: 8px;">
           Hip-Hop Pizzas
         </a>
@@ -43,7 +43,7 @@ const navBar = () => {
               <a
                 class="nav-link"
                 href="#"
-                style="background-color: #fff;border: 1px solid #ced4da;border-radius: 8px;margin: 0px 10px;"
+                style="background-color: #c3bebe;border: 1px solid #ced4da;border-radius: 8px;margin: 0px 10px;"
                 id="viewOrders">
                View Orders
                 <span
@@ -57,7 +57,7 @@ const navBar = () => {
               <a
                 class="nav-link"
                 href="#"
-                style="background-color: #fff;border: 1px solid #ced4da;border-radius: 8px;margin: 0px 10px;"
+                style="background-color: #c3bebe;border: 1px solid #ced4da;border-radius: 8px;margin: 0px 10px;"
                 id="createOrder">
                 Create An Order
               </a>

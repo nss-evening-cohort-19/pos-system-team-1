@@ -1,7 +1,11 @@
 import { createItem, updateItem } from '../api/itemData';
+<<<<<<< HEAD
 import {
   createOrder, updateOrder, getSingleOrder
 } from '../api/orderData';
+=======
+import { createOrder, updateOrder, getSingleOrder } from '../api/orderData';
+>>>>>>> main
 import { showItems } from '../components/pages/showItems';
 import { showOrders } from '../components/pages/showOrders';
 
@@ -57,6 +61,16 @@ const formEvents = (uid) => {
         uid
       };
       createItem(itemObject, uid).then((itemsArray) => showItems(itemsArray));
+    }
+
+    if (e.target.id.includes('update-payment')) {
+      const orderId = e.target.id.split('update-payment--')[1];
+
+      getSingleOrder(orderId)
+        .then((order) => {
+          const updatedOrder = { ...order, closedStatus: true };
+          updateOrder(updatedOrder).then(showOrders);
+        });
     }
 
     if (e.target.id.includes('update-payment')) {

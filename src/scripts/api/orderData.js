@@ -23,8 +23,12 @@ const deleteOrders = (firebaseKey, uid) => new Promise((resolve, reject) => {
     .catch((error) => reject(error));
 });
 
+<<<<<<< HEAD
 // FIXME: CREATE AN ORDER
 const createOrder = (orderObj, uid) => new Promise((resolve, reject) => {
+=======
+const createOrder = (orderObj) => new Promise((resolve, reject) => {
+>>>>>>> main
   axios.post(`${dbUrl}/orders.json`, orderObj)
     .then((response) => {
       const payload = { firebaseKey: response.data.name };
@@ -34,11 +38,23 @@ const createOrder = (orderObj, uid) => new Promise((resolve, reject) => {
         });
     }).catch(reject);
 });
+const getOrderItems = (orderId) => new Promise((resolve, reject) => {
+  axios.get(`${dbUrl}/items.json?orderBy= "order_id" &equalTo="${orderId}"`)
+    .then((response) => resolve(Object.values(response.data)))
+    .catch((error) => reject(error));
+});
 
-// FIXME: GET SINGLE ORDER
 const getSingleOrder = (firebaseKey) => new Promise((resolve, reject) => {
   axios.get(`${dbUrl}/orders/${firebaseKey}.json`)
     .then((response) => resolve(response.data))
+    .catch((error) => reject(error));
+});
+
+const deleteSingleOrder = (firebaseKey) => new Promise((resolve, reject) => {
+  axios.delete(`${dbUrl}/orders/${firebaseKey}.json`)
+    .then(() => {
+      getOrders().then((ordersArray) => resolve(ordersArray));
+    })
     .catch((error) => reject(error));
 });
 
@@ -71,6 +87,8 @@ export {
   createOrder,
   getSingleOrder,
   getClosedOrder,
+  getOrderItems,
+  deleteSingleOrder,
   updateOrder,
   filterOrder,
 };
