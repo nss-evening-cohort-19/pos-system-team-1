@@ -38,7 +38,7 @@ const showItems = (array, firebaseKey) => {
   });
   const btnString = `
     <button id="add-item-btn" type="button" class="btn btn-primary btn-lg">Add Item</button>
-    <button id="checkout" type="button" class="btn btn-secondary btn-lg">Checkout</button>
+    <button id="checkout--${firebaseKey}" type="button" class="btn btn-secondary btn-lg">Checkout</button>
   `;
   renderToDOM('#view', btnString);
 };
