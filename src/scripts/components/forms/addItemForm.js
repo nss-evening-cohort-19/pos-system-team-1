@@ -1,7 +1,7 @@
 import clearDom from '../../helpers/clearDom';
 import renderToDOM from '../../helpers/renderToDom';
 
-const addItemForm = (obj = {}) => {
+const addItemForm = (obj = {}, firebaseKey) => {
   clearDom();
   const domString = `
     <form
@@ -38,6 +38,20 @@ class="mb-4">
     id="itemPrice"
     aria-describedby="cardTitle"
     value="${obj.itemPrice || ''}"
+    required>
+  <input 
+    type ="hidden"
+    class="form-control"
+    id="editOrderId"
+    aria-describedby="cardTitle"
+    value="${obj.order_id}"
+    required>
+  <input 
+    type ="hidden"
+    class="form-control"
+    id="addOrderId"
+    aria-describedby="cardTitle"
+    value="${firebaseKey}"
     required>
 </div>
 <button

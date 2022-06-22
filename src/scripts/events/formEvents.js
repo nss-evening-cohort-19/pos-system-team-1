@@ -39,16 +39,18 @@ const formEvents = () => {
         itemName: document.querySelector('#itemName').value,
         itemPrice: parseInt(document.querySelector('#itemPrice').value, 10),
         firebaseKey,
+        order_id: document.querySelector('#editOrderId').value,
       };
-      updateItem(itemObject).then((itemsArray) => showItems(itemsArray));
+      updateItem(itemObject).then((itemsArray) => showItems(itemsArray, itemObject.order_id));
     }
 
     if (e.target.id.includes('submit-item')) {
       const itemObject = {
         itemName: document.querySelector('#itemName').value,
         itemPrice: parseInt(document.querySelector('#itemPrice').value, 10),
+        order_id: document.querySelector('#addOrderId').value,
       };
-      createItem(itemObject).then((itemsArray) => showItems(itemsArray));
+      createItem(itemObject).then((itemsArray) => showItems(itemsArray, itemObject.order_id));
     }
   });
 };
