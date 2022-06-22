@@ -6,7 +6,7 @@ import addItemForm from '../components/forms/addItemForm';
 import addPaymentForm from '../components/forms/addPaymentForm';
 import renderRevenue from '../components/pages/revenue';
 import { showOrders } from '../components/pages/showOrders';
-import viewItemsByOrder from '../api/mergedData';
+import { viewItemsByOrder } from '../api/mergedData';
 import { showItems } from '../components/pages/showItems';
 
 const domEvents = () => {
