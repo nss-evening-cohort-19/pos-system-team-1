@@ -7,9 +7,9 @@ const emptyItems = () => {
   renderToDOM('#store', domString);
 };
 
-const showItems = (array, firebaseKey, uid) => {
+const showItems = (array, firebaseKey) => {
   clearDom();
-  getItemsByOrder(firebaseKey, uid).then((itemArray) => {
+  getItemsByOrder(firebaseKey).then((itemArray) => {
     let sum = 0;
 
     itemArray.forEach((item) => {

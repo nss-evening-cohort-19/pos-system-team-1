@@ -1,10 +1,10 @@
 import { getItemsByOrder } from './itemData';
 import { getSingleOrder } from './orderData';
 
-const viewItemsByOrder = (firebaseKey) => new Promise((resolve, reject) => {
+const viewItemsByOrder = (firebaseKey, uid) => new Promise((resolve, reject) => {
   getSingleOrder(firebaseKey)
     .then((orderObject) => {
-      getItemsByOrder(orderObject.firebaseKey)
+      getItemsByOrder(orderObject.firebaseKey, uid)
         .then((itemObject) => {
           resolve(Object.values(itemObject));
           // ({ orderObject, ...itemObject });
