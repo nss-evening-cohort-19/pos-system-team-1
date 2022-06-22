@@ -14,13 +14,13 @@ const showOrders = (array) => {
       domString += `<div class="orders-card">
       <div class="card-body">
       <h5 class="card-title">${obj.orderName}</h5>
-      <h6 class="card-subtitle mb-2 text-muted">${obj.closedStatus}</h6>
+      <h6 class="card-subtitle mb-2 text-muted">Closed Status: ${obj.closedStatus}</h6>
       <p class="card-phone">${obj.customerPhone}</p>
       <p class="card-date">${obj.customerEmail}</p>
       <p class="card-type">${obj.orderType}</p>
-      <i class="btn btn-success fas fa-eye" id="details-order--${obj.firebaseKey}"></i>
-      <i class="fas fa-edit btn btn-warning" id="edit-order--${obj.firebaseKey}"></i>
-      <i class="btn btn-danger fas fa-trash-alt" id="delete-order--${obj.firebaseKey}"></i>
+      <a href="#" id="details-order--${obj.firebaseKey}">Details</a>
+      ${obj.closedStatus ? `<a href="#" style='color: grey;text-decoration: none;' id="done-order--${obj.firebaseKey}">Edit</a>` : `<a href="#" id="edit-order--${obj.firebaseKey}">Edit</a>`}
+      <a href="#" id="delete-order--${obj.firebaseKey}">Delete</a>
       </div>
     </div>
     <br>`;
