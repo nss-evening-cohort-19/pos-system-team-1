@@ -33,6 +33,11 @@ const createOrder = (orderObj) => new Promise((resolve, reject) => {
         });
     }).catch(reject);
 });
+const getOrderItems = (orderId) => new Promise((resolve, reject) => {
+  axios.get(`${dbUrl}/items.json?orderBy= "order_id" &equalTo="${orderId}"`)
+    .then((response) => resolve(Object.values(response.data)))
+    .catch((error) => reject(error));
+});
 
 const getSingleOrder = (firebaseKey) => new Promise((resolve, reject) => {
   axios.get(`${dbUrl}/orders/${firebaseKey}.json`)
@@ -77,6 +82,7 @@ export {
   createOrder,
   getSingleOrder,
   getClosedOrder,
+  getOrderItems,
   deleteSingleOrder,
   updateOrder,
   filterOrder,
