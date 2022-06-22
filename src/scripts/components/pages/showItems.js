@@ -18,14 +18,14 @@ const showItems = (array, firebaseKey) => {
 
     if (array.length) {
       let domString = `
-      <h1>Total $${sum}</h1>
+      <div class="totSum"><h1>Total $${sum}</h1></div>
     `;
       array.forEach((obj) => {
         domString += `
-        <div class="card" style="width: 18rem;">
+        <div class="item-card" style="width: 18rem;">
           <div class="card-body">
             <h5 class="card-title">${obj.itemName}</h5>
-            <h6 class="card-price mb-2 text-muted">${obj.itemPrice}</h6>
+            <h6 class="card-price mb-2 text-muted">$${obj.itemPrice}</h6>
             <hr>
             <i class="fas fa-edit btn btn-info" id="edit-item--${obj.firebaseKey}"></i>
             <i class="btn btn-danger fas fa-trash-alt" id="delete-item-btn--${obj.firebaseKey}"></i>
@@ -38,7 +38,7 @@ const showItems = (array, firebaseKey) => {
   });
   const btnString = `
     <button id="add-item-btn" type="button" class="btn btn-primary btn-lg">Add Item</button>
-    <button id="checkout" type="button" class="btn btn-secondary btn-lg">Checkout</button>
+    <button id="checkout--${firebaseKey}" type="button" class="btn btn-secondary btn-lg">Checkout</button>
   `;
   renderToDOM('#view', btnString);
 };
