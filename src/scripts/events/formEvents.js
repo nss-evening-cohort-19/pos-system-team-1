@@ -1,5 +1,5 @@
 import { createItem, updateItem } from '../api/itemData';
-import { createOrder, updateOrder } from '../api/orderData';
+import { createOrder, updateOrder, getSingleOrder } from '../api/orderData';
 import { showItems } from '../components/pages/showItems';
 import { showOrders } from '../components/pages/showOrders';
 
@@ -51,6 +51,16 @@ const formEvents = () => {
         order_id: document.querySelector('#addOrderId').value,
       };
       createItem(itemObject).then((itemsArray) => showItems(itemsArray, itemObject.order_id));
+    }
+
+    if (e.target.id.includes('update-payment')) {
+      const orderId = e.target.id.split('update-payment--')[1];
+
+      getSingleOrder(orderId)
+        .then((order) => {
+          const updatedOrder = { ...order, closedStatus: true };
+          updateOrder(updatedOrder).then(showOrders);
+        });
     }
   });
 };
