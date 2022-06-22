@@ -1,5 +1,6 @@
 import renderToDOM from '../../helpers/renderToDom';
 import pizzaImg from '../../../images/pizza.png';
+import logoutButton from '../auth/logoutButton';
 
 const navBar = () => {
   const domString = `
@@ -93,6 +94,7 @@ const navBar = () => {
       </nav>`;
 
   renderToDOM('#navigation', domString);
+  logoutButton();
 };
 
 export default navBar;

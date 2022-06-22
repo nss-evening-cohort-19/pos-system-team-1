@@ -3,8 +3,8 @@ import firebaseConfig from './apiKeys';
 
 const dbUrl = firebaseConfig.databaseURL;
 
-const getItems = () => new Promise((resolve, reject) => {
-  axios.get(`${dbUrl}/items.json`)
+const getItems = (uid) => new Promise((resolve, reject) => {
+  axios.get(`${dbUrl}/items.json?orderBy="uid"&equalTo="${uid}"`)
     .then((response) => {
       if (response.data) {
         resolve(Object.values(response.data));
@@ -21,27 +21,27 @@ const getSingleItem = (firebaseKey) => new Promise((resolve, reject) => {
     .catch((error) => reject(error));
 });
 
-const deleteSingleItem = (firebaseKey) => new Promise((resolve, reject) => {
+const deleteSingleItem = (firebaseKey, uid) => new Promise((resolve, reject) => {
   axios.delete(`${dbUrl}/items/${firebaseKey}.json`)
     .then(() => {
-      getItems().then((itemsArray) => resolve(itemsArray));
+      getItems(uid).then((itemsArray) => resolve(itemsArray));
     })
     .catch((error) => reject(error));
 });
 
-const createItem = (itemObj) => new Promise((resolve, reject) => {
+const createItem = (itemObj, uid) => new Promise((resolve, reject) => {
   axios.post(`${dbUrl}/items.json`, itemObj)
     .then((response) => {
       const payload = { firebaseKey: response.data.name };
       axios.patch(`${dbUrl}/items/${response.data.name}.json`, payload)
         .then(() => {
-          getItems(itemObj).then((data) => resolve(data));
+          getItems(uid).then((data) => resolve(data));
         });
     }).catch(reject);
 });
-const updateItem = (itemObj) => new Promise((resolve, reject) => {
+const updateItem = (itemObj, uid) => new Promise((resolve, reject) => {
   axios.patch(`${dbUrl}/items/${itemObj.firebaseKey}.json`, itemObj)
-    .then(() => getItems().then(resolve))
+    .then(() => getItems(uid).then(resolve))
     .catch(reject);
 });
 

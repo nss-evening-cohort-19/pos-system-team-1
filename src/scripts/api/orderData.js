@@ -3,8 +3,8 @@ import firebaseConfig from './apiKeys';
 
 const dbUrl = firebaseConfig.databaseURL;
 
-const getOrders = () => new Promise((resolve, reject) => {
-  axios.get(`${dbUrl}/orders.json`)
+const getOrders = (uid) => new Promise((resolve, reject) => {
+  axios.get(`${dbUrl}/orders.json?orderBy="uid"&equalTo="${uid}"`)
     .then((response) => {
       if (response.data) {
         resolve(Object.values(response.data));
@@ -15,22 +15,22 @@ const getOrders = () => new Promise((resolve, reject) => {
     .catch((error) => reject(error));
 });
 
-const deleteOrders = (firebaseKey) => new Promise((resolve, reject) => {
+const deleteOrders = (firebaseKey, uid) => new Promise((resolve, reject) => {
   axios.delete(`${dbUrl}/orders/${firebaseKey}.json`)
     .then(() => {
-      getOrders().then((ordersArray) => resolve(ordersArray));
+      getOrders(uid).then((ordersArray) => resolve(ordersArray));
     })
     .catch((error) => reject(error));
 });
 
 // FIXME: CREATE AN ORDER
-const createOrder = (orderObj) => new Promise((resolve, reject) => {
+const createOrder = (orderObj, uid) => new Promise((resolve, reject) => {
   axios.post(`${dbUrl}/orders.json`, orderObj)
     .then((response) => {
       const payload = { firebaseKey: response.data.name };
       axios.patch(`${dbUrl}/orders/${response.data.name}.json`, payload)
         .then(() => {
-          getOrders(orderObj.uid).then((data) => resolve(data));
+          getOrders(uid).then((data) => resolve(data));
         });
     }).catch(reject);
 });
@@ -49,9 +49,9 @@ const getClosedOrder = (uid) => new Promise((resolve, reject) => {
   }).catch((error) => reject(error));
 });
 
-const updateOrder = (orderObj) => new Promise((resolve, reject) => {
+const updateOrder = (orderObj, uid) => new Promise((resolve, reject) => {
   axios.patch(`${dbUrl}/orders/${orderObj.firebaseKey}.json`, orderObj)
-    .then(() => getOrders().then(resolve))
+    .then(() => getOrders(uid).then(resolve))
     .catch(reject);
 });
 

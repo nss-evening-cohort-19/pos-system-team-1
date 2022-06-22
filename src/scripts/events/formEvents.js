@@ -3,7 +3,7 @@ import { createOrder, updateOrder } from '../api/orderData';
 import { showItems } from '../components/pages/showItems';
 import { showOrders } from '../components/pages/showOrders';
 
-const formEvents = () => {
+const formEvents = (uid) => {
   document.querySelector('#main-container').addEventListener('submit', (e) => {
     e.preventDefault();
 
@@ -13,7 +13,8 @@ const formEvents = () => {
         customerPhone: document.querySelector('#phone').value,
         customerEmail: document.querySelector('#email').value,
         orderType: document.querySelector('#order-type').value,
-        closedStatus: false
+        closedStatus: false,
+        uid
       };
 
       createOrder(orderObject).then((ordersArray) => showOrders(ordersArray));
@@ -27,7 +28,8 @@ const formEvents = () => {
         customerEmail: document.querySelector('#email').value,
         orderType: document.querySelector('#order-type').value,
         closedStatus: false,
-        firebaseKey
+        firebaseKey,
+        uid
       };
 
       updateOrder(orderObject).then(showOrders);
@@ -39,6 +41,7 @@ const formEvents = () => {
         itemName: document.querySelector('#itemName').value,
         itemPrice: parseInt(document.querySelector('#itemPrice').value, 10),
         firebaseKey,
+        uid
       };
       updateItem(itemObject).then(showItems);
     }
@@ -47,6 +50,7 @@ const formEvents = () => {
       const itemObject = {
         itemName: document.querySelector('#itemName').value,
         itemPrice: parseInt(document.querySelector('#itemPrice').value, 10),
+        uid
       };
       createItem(itemObject).then((itemsArray) => showItems(itemsArray));
     }

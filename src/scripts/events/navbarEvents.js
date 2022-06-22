@@ -3,6 +3,7 @@ import createOrderForm from '../components/forms/createAnOrderForm';
 import { getOrders } from '../api/orderData';
 import homeLoggedIn from '../components/pages/homeLoggedIn';
 import { showOrders } from '../components/pages/showOrders';
+// import { showOrders } from '../components/pages/showOrders';
 
 // nav bar events
 const navbarEvents = (user) => {
