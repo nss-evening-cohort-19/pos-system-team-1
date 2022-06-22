@@ -10,17 +10,17 @@ const showOrders = (array) => {
 
   if (array.length) {
     let domString = '';
-    array.forEach((obj) => {
+    array.forEach((item) => {
       domString += `<div class="orders-card">
       <div class="card-body">
-      <h5 class="card-title">${obj.orderName}</h5>
-      <h6 class="card-subtitle mb-2 text-muted">${obj.closedStatus}</h6>
-      <p class="card-phone">${obj.customerPhone}</p>
-      <p class="card-date">${obj.customerEmail}</p>
-      <p class="card-type">${obj.orderType}</p>
-      <a href="#" id="details-order--${obj.firebaseKey}">Details</a>
-      <a href="#" id="edit-order--${obj.firebaseKey}">Edit</a>
-      <a href="#" id="delete-order--${obj.firebaseKey}">Delete</a>
+      <h5 class="card-title">${item.orderName}</h5>
+      <h6 class="card-subtitle mb-2 text-muted">${item.closedStatus}</h6>
+      <p class="card-phone">${item.customerPhone}</p>
+      <p class="card-date">${item.customerEmail}</p>
+      <p class="card-type">${item.orderType}</p>
+      <a href="#" class="link-success" id="details-order--${item.firebaseKey}">Details</a>
+      <a href="#" class="link-warning" id="edit-order--${item.firebaseKey}">Edit</a>
+      <a href="#" class="link-danger" id="delete-order--${item.firebaseKey}">Delete</a>
       </div>
     </div>
     <br>`;

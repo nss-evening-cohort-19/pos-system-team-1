@@ -1,4 +1,3 @@
-// import { getOrders } from '../api/orderData';
 import domBuilder from '../components/domBuilder';
 import navbar from '../components/pages/navBar';
 import navbarEvents from '../events/navbarEvents';
