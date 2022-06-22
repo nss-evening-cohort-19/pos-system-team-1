@@ -9,7 +9,7 @@ import { showOrders } from '../components/pages/showOrders';
 import viewItemsByOrder from '../api/mergedData';
 import { showItems } from '../components/pages/showItems';
 
-const domEvents = () => {
+const domEvents = (uid) => {
   document.querySelector('#view').addEventListener('click', (e) => {
     if (e.target.id.includes('delete-order')) {
       if (window.confirm('Want to delete?')) {
@@ -21,7 +21,7 @@ const domEvents = () => {
   });
   document.querySelector('#view').addEventListener('click', (e) => {
     if (e.target.id.includes('viewOrderBtn')) {
-      getOrders().then((orderArray) => showOrders(orderArray));
+      getOrders(uid).then((orderArray) => showOrders(orderArray));
     }
     if (e.target.id.includes('createOrderBtn')) {
       createOrderForm();
@@ -34,7 +34,8 @@ const domEvents = () => {
     }
     if (e.target.id.includes('details-order')) {
       const [, firebaseKey] = e.target.id.split('--');
-      viewItemsByOrder(firebaseKey).then((itemsArray) => showItems(itemsArray, firebaseKey));
+      viewItemsByOrder(firebaseKey).then((itemsArray) => console.warn(itemsArray));
+      // showItems(itemsArray, firebaseKey, uid));
     }
     if (e.target.id.includes('edit-order')) {
       const [, firebaseKey] = e.target.id.split('--');

@@ -6,7 +6,8 @@
     "customerPhone" : "615-945-5033",
     "customerEmail" : "123@gamil.com",
     "orderType": "phone",
-    "dateCreated" : "06/13/2022"
+    "dateCreated" : "06/13/2022",
+    "uid":""
   },
   "-TWOsfuTafbED8eAULxV" :{ 
     "firebaseKey" : "-TWOsfuTafbED8eAULxV",
@@ -15,7 +16,8 @@
     "customerPhone" : "615-945-5045",
     "customerEmail" : "193@gmail.com",
     "orderType": "in-person",
-    "dateCreated" : "06/15/2022"
+    "dateCreated" : "06/15/2022",
+    "uid": ""
   },
   "-MiBsfuTafbEQ7eAULxV" :{ 
     "firebaseKey" : "-MiBsfuTafbEQ7eAULxV",
@@ -24,7 +26,8 @@
     "customerPhone" : "931-743-5555",
     "customerEmail" : "133@gmail.com",
     "orderType": "phone",
-    "dateCreated" : "06/17/2022"
+    "dateCreated" : "06/17/2022",
+    "uid": ""
   },
     "-MiBulenBnY8by9Xn7q1" :{ 
       "firebaseKey" : "-MiBulenBnY8by9Xn7q1",

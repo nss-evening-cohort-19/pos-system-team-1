@@ -1,5 +1,7 @@
 import { createItem, updateItem } from '../api/itemData';
-import { createOrder, updateOrder } from '../api/orderData';
+import {
+  createOrder, updateOrder, getSingleOrder
+} from '../api/orderData';
 import { showItems } from '../components/pages/showItems';
 import { showOrders } from '../components/pages/showOrders';
 
@@ -17,7 +19,7 @@ const formEvents = (uid) => {
         uid
       };
 
-      createOrder(orderObject).then((ordersArray) => showOrders(ordersArray));
+      createOrder(orderObject, uid).then((ordersArray) => showOrders(ordersArray));
     }
 
     if (e.target.id.includes('update-order')) {
@@ -32,7 +34,7 @@ const formEvents = (uid) => {
         uid
       };
 
-      updateOrder(orderObject).then(showOrders);
+      updateOrder(orderObject, uid).then(showOrders);
     }
 
     if (e.target.id.includes('update-item')) {
@@ -43,7 +45,9 @@ const formEvents = (uid) => {
         firebaseKey,
         uid
       };
-      updateItem(itemObject).then(showItems);
+      updateItem(itemObject, uid).then((itemsArray) => {
+        showItems(itemsArray, firebaseKey, uid);
+      });
     }
 
     if (e.target.id.includes('submit-item')) {
@@ -52,7 +56,17 @@ const formEvents = (uid) => {
         itemPrice: parseInt(document.querySelector('#itemPrice').value, 10),
         uid
       };
-      createItem(itemObject).then((itemsArray) => showItems(itemsArray));
+      createItem(itemObject, uid).then((itemsArray) => showItems(itemsArray));
+    }
+
+    if (e.target.id.includes('update-payment')) {
+      const orderId = e.target.id.split('update-payment--')[1];
+
+      getSingleOrder(orderId)
+        .then((order) => {
+          const updatedOrder = { ...order, closedStatus: true };
+          updateOrder(updatedOrder).then(showOrders);
+        });
     }
   });
 };

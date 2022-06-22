@@ -10,9 +10,9 @@ const startApp = (user) => {
   domBuilder();
   navbar();
   homeLoggedIn(user);
-  domEvents();
-  navbarEvents(user.uid);
-  formEvents();
+  domEvents(user.uid);
+  navbarEvents(user);
+  formEvents(user.uid);
   filterEvents(user);
 };
 
