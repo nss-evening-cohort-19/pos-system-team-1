@@ -15,8 +15,8 @@ const navBar = () => {
           style="font-weight: bold;font-family: cursive; font-size: 28px;display: flex;align-items: center;">
           <img
                class="record" src=${vinylImg}
-            style="height: 45px;margin-right: 8px;">
-          Hip-Hop Pizzas
+            style="height: 60px; width: 60px; margin-right: 8px;">
+          Hip-Hop Pizza and Wangs
         </a>
         <button
           class="navbar-toggler"
