@@ -27,14 +27,15 @@ const domEvents = (uid) => {
       createOrderForm();
     }
     if (e.target.id.includes('add-item-btn')) {
-      addItemForm();
+      const orderFirebaseKey = e.target.id.split('--')[1];
+      addItemForm({ orderId: orderFirebaseKey });
     }
     if (e.target.id.includes('viewRevBtn')) {
       renderRevenue();
     }
     if (e.target.id.includes('details-order')) {
       const [, firebaseKey] = e.target.id.split('--');
-      viewItemsByOrder(firebaseKey, uid).then((itemsArray) => showItems(itemsArray, firebaseKey));
+      viewItemsByOrder(firebaseKey).then((itemsArray) => showItems(itemsArray, firebaseKey));
     }
     if (e.target.id.includes('edit-order')) {
       const [, firebaseKey] = e.target.id.split('--');
@@ -54,7 +55,7 @@ const domEvents = (uid) => {
     if (e.target.id.includes('delete-item-btn')) {
       if (window.confirm('Want to delete?')) {
         const [, firebaseKey] = e.target.id.split('--');
-        deleteSingleItem(firebaseKey).then((itemsArray) => showItems(itemsArray));
+        deleteSingleItem(firebaseKey).then((itemsArray) => showItems(itemsArray, firebaseKey, uid));
       }
     }
   });

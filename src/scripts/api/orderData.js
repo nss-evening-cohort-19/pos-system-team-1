@@ -23,12 +23,8 @@ const deleteOrders = (firebaseKey, uid) => new Promise((resolve, reject) => {
     .catch((error) => reject(error));
 });
 
-<<<<<<< HEAD
 // FIXME: CREATE AN ORDER
 const createOrder = (orderObj, uid) => new Promise((resolve, reject) => {
-=======
-const createOrder = (orderObj) => new Promise((resolve, reject) => {
->>>>>>> main
   axios.post(`${dbUrl}/orders.json`, orderObj)
     .then((response) => {
       const payload = { firebaseKey: response.data.name };

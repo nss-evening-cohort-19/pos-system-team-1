@@ -5,7 +5,7 @@ const addItemForm = (obj = {}) => {
   clearDom();
   const domString = `
     <form
-      id="${obj.firebaseKey ? `update-item--${obj.firebaseKey}` : 'submit-item'}"
+      id="${obj.firebaseKey ? `update-item--${obj.firebaseKey}--${obj.orderId}` : `submit-item--${obj.orderId}`}"
       style="margin: 20px;border: 1px solid #d49186;padding: 20px;"
 class="mb-4">
 <div
@@ -46,7 +46,6 @@ class="mb-4">
   Add/Edit Item
 </button>
 </>`;
-
   renderToDOM('#form-container', domString);
 };
 

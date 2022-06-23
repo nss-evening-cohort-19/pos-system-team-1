@@ -1,15 +1,9 @@
 import { createItem, updateItem } from '../api/itemData';
-<<<<<<< HEAD
-import {
-  createOrder, updateOrder, getSingleOrder
-} from '../api/orderData';
-=======
 import { createOrder, updateOrder, getSingleOrder } from '../api/orderData';
->>>>>>> main
 import { showItems } from '../components/pages/showItems';
 import { showOrders } from '../components/pages/showOrders';
 
-const formEvents = (uid) => {
+const formEvents = (uid, orderId) => {
   document.querySelector('#main-container').addEventListener('submit', (e) => {
     e.preventDefault();
 
@@ -42,41 +36,36 @@ const formEvents = (uid) => {
     }
 
     if (e.target.id.includes('update-item')) {
-      const [, firebaseKey] = e.target.id.split('--');
+      const [, firebaseKey, orderFirebaseKey] = e.target.id.split('--');
+      console.warn(firebaseKey, 'fb');
+      console.warn(orderFirebaseKey, 'orderID');
       const itemObject = {
         itemName: document.querySelector('#itemName').value,
         itemPrice: parseInt(document.querySelector('#itemPrice').value, 10),
         firebaseKey,
-        uid
+        uid,
+        orderId: orderFirebaseKey
       };
-      updateItem(itemObject, uid).then((itemsArray) => {
-        showItems(itemsArray, firebaseKey, uid);
+      updateItem(itemObject, orderId).then((itemsArray) => {
+        showItems(itemsArray, orderFirebaseKey);
       });
     }
 
     if (e.target.id.includes('submit-item')) {
+      const [, orderFirebaseKey] = e.target.id.split('--');
       const itemObject = {
         itemName: document.querySelector('#itemName').value,
         itemPrice: parseInt(document.querySelector('#itemPrice').value, 10),
-        uid
+        uid: `${uid}`,
+        orderId: orderFirebaseKey
       };
-      createItem(itemObject, uid).then((itemsArray) => showItems(itemsArray));
+      createItem(itemObject, orderId).then((itemsArray) => showItems(itemsArray, orderFirebaseKey));
     }
 
     if (e.target.id.includes('update-payment')) {
-      const orderId = e.target.id.split('update-payment--')[1];
+      const orderFbkey = e.target.id.split('update-payment--')[1];
 
-      getSingleOrder(orderId)
-        .then((order) => {
-          const updatedOrder = { ...order, closedStatus: true };
-          updateOrder(updatedOrder).then(showOrders);
-        });
-    }
-
-    if (e.target.id.includes('update-payment')) {
-      const orderId = e.target.id.split('update-payment--')[1];
-
-      getSingleOrder(orderId)
+      getSingleOrder(orderFbkey)
         .then((order) => {
           const updatedOrder = { ...order, closedStatus: true };
           updateOrder(updatedOrder).then(showOrders);

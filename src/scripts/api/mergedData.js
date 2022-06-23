@@ -1,22 +1,23 @@
-import { deleteItems, getItemsByOrder } from './itemData';
-import { getSingleOrder, getOrderItems, deleteSingleOrder } from './orderData';
+import { getItemsByOrder, deleteSingleItem, deleteItems } from './itemData';
+import { getSingleOrder, getOrderItems } from './orderData';
 
-const viewItemsByOrder = (firebaseKey, uid) => new Promise((resolve, reject) => {
+const viewItemsByOrder = (firebaseKey) => new Promise((resolve, reject) => {
   getSingleOrder(firebaseKey)
     .then((orderObject) => {
-      getItemsByOrder(orderObject.firebaseKey, uid)
+      getItemsByOrder(orderObject.firebaseKey)
         .then((itemObject) => {
           resolve(Object.values(itemObject));
           // ({ orderObject, ...itemObject });
         });
     }).catch((error) => reject(error));
 });
+
 const deleteOrderItems = (orderId) => new Promise((resolve, reject) => {
   getOrderItems(orderId).then((itemsArray) => {
     const deleteItemPromises = itemsArray.map((items) => deleteItems(items.firebaseKey));
     console.warn(deleteItemPromises);
     Promise.all(deleteItemPromises).then(() => {
-      deleteSingleOrder(orderId).then(resolve);
+      deleteSingleItem(orderId).then(resolve);
     });
   }).catch((error) => reject(error));
 });
