@@ -1,18 +1,23 @@
 import { filterOrder } from '../api/orderData';
 import { showOrders } from '../components/pages/showOrders';
 
-export const filterSearchEvents = (user) => {
+export const registerSearchEvents = (user) => {
   document.querySelector('#searchBtn').addEventListener('click', () => {
-    const searchTerm = document.getElementById('searchBar').value;
-    filterOrder(user.uid, searchTerm).then((orderArray) => showOrders(orderArray));
+    const searchKey = document.querySelector('#searchOption').value;
+    const searchTerm = document.querySelector('#searchBar').value;
+
+    filterOrder(user.uid, { [searchKey]: searchTerm }).then((orderArray) => showOrders(orderArray));
   });
 };
 
-//  const filterClosedStatus = (user) => {
-//     document.querySelector('#searchBtn').addEventListener('click', () => {
-//       const searchTerm = document.getElementById('searchBar').value;
-//       filterOrder(user.uid, searchTerm).then((orderArray) => showOrders(orderArray));
-//     });
-// };
+export const registerOrderStatusFilter = (user) => {
+  document.querySelector('#view').addEventListener('click', (e) => {
+    if (e.target.id.includes('orderStatusOpen')) {
+      filterOrder(user.uid, { orderStatus: false }).then((orderArray) => showOrders(orderArray));
+    }
 
-export default filterSearchEvents;
+    if (e.target.id.includes('orderStatusClosed')) {
+      filterOrder(user.uid, { orderStatus: true }).then((orderArray) => showOrders(orderArray));
+    }
+  });
+};

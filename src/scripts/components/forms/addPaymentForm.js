@@ -8,9 +8,9 @@ const addPaymentForm = (obj = {}) => {
       id=${obj.firebaseKey ? `update-payment--${obj.firebaseKey}` : 'submit-payment'}
       style="margin: 20px;border: 1px solid #d49186;padding: 20px;"
       class="mb-4">
-      <div
+      <div>
       <label
-      for="title">
+        for="title">
       Payment type
       </label>
       <select
