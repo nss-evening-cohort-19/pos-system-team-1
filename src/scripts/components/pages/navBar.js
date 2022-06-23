@@ -63,11 +63,11 @@ const navBar = () => {
             </li>
             <form
               class="d-flex"
-              style="margin: 0 20px;"
+              style="margin: 0 5px;"
               role="search">
               <input
                 id="searchBar"
-                class="form-control me-2"
+                class="form-control my-3"
                 style="margin-right: 4px !important;"
                 type="search"
                 placeholder="Enter Name or Phone"

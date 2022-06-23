@@ -3,7 +3,7 @@ import { createOrder, updateOrder, getSingleOrder } from '../api/orderData';
 import { showItems } from '../components/pages/showItems';
 import { showOrders } from '../components/pages/showOrders';
 
-const formEvents = () => {
+const formEvents = (uid) => {
   document.querySelector('#main-container').addEventListener('submit', (e) => {
     e.preventDefault();
 
@@ -13,10 +13,11 @@ const formEvents = () => {
         customerPhone: document.querySelector('#phone').value,
         customerEmail: document.querySelector('#email').value,
         orderType: document.querySelector('#order-type').value,
-        closedStatus: false
+        closedStatus: false,
+        uid
       };
 
-      createOrder(orderObject).then((ordersArray) => showOrders(ordersArray));
+      createOrder(orderObject.uid).then((ordersArray) => showOrders(ordersArray));
     }
 
     if (e.target.id.includes('update-order')) {
@@ -27,10 +28,11 @@ const formEvents = () => {
         customerEmail: document.querySelector('#email').value,
         orderType: document.querySelector('#order-type').value,
         closedStatus: false,
-        firebaseKey
+        firebaseKey,
+        uid
       };
 
-      updateOrder(orderObject).then(showOrders);
+      updateOrder(orderObject).then((ordersArray) => showOrders(ordersArray));
     }
 
     if (e.target.id.includes('update-item')) {
@@ -39,18 +41,18 @@ const formEvents = () => {
         itemName: document.querySelector('#itemName').value,
         itemPrice: parseInt(document.querySelector('#itemPrice').value, 10),
         firebaseKey,
-        order_id: document.querySelector('#editOrderId').value,
+        orderId: document.querySelector('#editOrderId').value,
       };
-      updateItem(itemObject).then((itemsArray) => showItems(itemsArray, itemObject.order_id));
+      updateItem(itemObject).then((itemsArray) => showItems(itemsArray, itemObject.orderId));
     }
 
     if (e.target.id.includes('submit-item')) {
       const itemObject = {
         itemName: document.querySelector('#itemName').value,
         itemPrice: parseInt(document.querySelector('#itemPrice').value, 10),
-        order_id: document.querySelector('#addOrderId').value,
+        orderId: document.querySelector('#addOrderId').value,
       };
-      createItem(itemObject).then((itemsArray) => showItems(itemsArray, itemObject.order_id));
+      createItem(itemObject).then((itemsArray) => showItems(itemsArray, itemObject.orderId));
     }
 
     if (e.target.id.includes('update-payment')) {

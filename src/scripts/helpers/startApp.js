@@ -14,7 +14,7 @@ const startApp = (user) => {
   homeLoggedIn(user);
   domEvents(); // ADD THE EVENT LISTENTERS TO THE DOM
   navbarEvents(user); // ATTACH THE EVENT LISTENERS TO THE NAVBAR
-  formEvents(); // ADD FORM EVENT LISTENTERS TO THE DOM
+  formEvents(user.uid); // ADD FORM EVENT LISTENTERS TO THE DOM
   filterEvents(user);
 };
 

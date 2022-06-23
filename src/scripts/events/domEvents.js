@@ -9,7 +9,7 @@ import { showOrders } from '../components/pages/showOrders';
 import { viewItemsByOrder } from '../api/mergedData';
 import { showItems } from '../components/pages/showItems';
 
-const domEvents = () => {
+const domEvents = (uid) => {
   document.querySelector('#view').addEventListener('click', (e) => {
     if (e.target.id.includes('delete-order')) {
       if (window.confirm('Want to delete?')) {
@@ -21,10 +21,10 @@ const domEvents = () => {
   });
   document.querySelector('#view').addEventListener('click', (e) => {
     if (e.target.id.includes('viewOrderBtn')) {
-      getOrders().then((orderArray) => showOrders(orderArray));
+      getOrders(uid).then((orderArray) => showOrders(orderArray));
     }
     if (e.target.id.includes('createOrderBtn')) {
-      createOrderForm();
+      createOrderForm(uid);
     }
     if (e.target.id.includes('add-item-btn')) {
       const [, firebaseKey] = e.target.id.split('--');
@@ -57,7 +57,7 @@ const domEvents = () => {
       if (window.confirm('Want to delete?')) {
         const [, firebaseKey] = e.target.id.split('--');
         getSingleItem(firebaseKey).then((itemObject) => deleteSingleItem(itemObject, firebaseKey))
-          .then((itemsArray) => showItems(itemsArray, itemsArray[0].order_id));
+          .then((itemsArray) => showItems(itemsArray, itemsArray[0].orderId));
       }
     }
   });
