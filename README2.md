@@ -1,7 +1,7 @@
 
 <div style="text-align:center"><h1>Hop! A Pizza Joint</h1>
 
-<image src="/images/hoppizza.jpeg" style="height:300px;"></image></div>
+<image src="./src/images/hoppizza.jpeg" style="height:300px;"></image></div>
 
 ##The Who, How, and Why
 
