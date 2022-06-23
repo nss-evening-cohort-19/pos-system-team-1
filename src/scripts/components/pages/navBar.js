@@ -65,12 +65,30 @@ const navBar = () => {
               class="d-flex"
               style="margin: 0 20px;"
               role="search">
+              <select
+                class="form-select"
+                style="width: 150px; height: 50px"
+                id="searchOption"
+                aria-label="Order filter options">
+                <option
+                  selected>
+                  Select filter
+                </option>
+                <option
+                  value="name">
+                  Customer Name
+                </option>
+                <option
+                  value="phone">
+                  Customer Phone
+                </option>
+              </select>
               <input
                 id="searchBar"
                 class="form-control me-2"
+                style="width: 150px; height: 50px"
                 style="margin-right: 4px !important;"
                 type="search"
-                placeholder="Enter Name or Phone"
                 aria-label="Search">
               <button
                 id = "searchBtn"
