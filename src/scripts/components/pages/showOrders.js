@@ -14,7 +14,7 @@ const showOrders = (array) => {
       domString += `<div class="orders-card">
       <div class="card-body">
       <h5 class="card-title">${obj.orderName}</h5>
-      <h6 class="card-subtitle mb-2 text-muted">Closed Status: ${obj.closedStatus}</h6>
+      <h6 class="card-subtitle mb-2 text-muted">Order Status: ${obj.closedStatus ? 'Closed' : 'Open'}</h6>
       <p class="card-phone">${obj.customerPhone}</p>
       <p class="card-date">${obj.customerEmail}</p>
       <p class="card-type">${obj.orderType}</p>
@@ -27,7 +27,8 @@ const showOrders = (array) => {
     });
 
     const filterButtonStr = `
-      <div>
+      <div
+        id="orderStatusOption">
         <div
           class="form-check form-check-inline">
           <input
@@ -58,7 +59,9 @@ const showOrders = (array) => {
         </div>
       </div>`;
 
-    renderToDOM('#view', `${filterButtonStr}${domString}`);
+    const showOrderDom = `<div>${filterButtonStr}<div style='display: flex;flex-wrap: wrap;justify-content: center;padding: 30px;'>${domString}</div></div>`;
+
+    renderToDOM('#view', showOrderDom);
   } else {
     emptyOrders();
   }
