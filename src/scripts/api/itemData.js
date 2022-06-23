@@ -3,17 +3,17 @@ import firebaseConfig from './apiKeys';
 
 const dbUrl = firebaseConfig.databaseURL;
 
-// const getItems = (orderId) => new Promise((resolve, reject) => {
-//   axios.get(`${dbUrl}/items.json?orderBy="orderId"&equalTo="${orderId}"`)
-//     .then((response) => {
-//       if (response.data) {
-//         resolve(Object.values(response.data));
-//       } else {
-//         resolve([]);
-//       }
-//     })
-//     .catch((error) => reject(error));
-// });
+const getItems = (orderId) => new Promise((resolve, reject) => {
+  axios.get(`${dbUrl}/items.json?orderBy="orderId"&equalTo="${orderId}"`)
+    .then((response) => {
+      if (response.data) {
+        resolve(Object.values(response.data));
+      } else {
+        resolve([]);
+      }
+    })
+    .catch((error) => reject(error));
+});
 const getItemsByOrder = (orderId) => new Promise((resolve, reject) => {
   axios.get(`${dbUrl}/items.json?orderBy="orderId"&equalTo="${orderId}"`)
     .then((response) => resolve(Object.values(response.data)))
@@ -58,7 +58,7 @@ const updateItem = (itemObj, orderId) => new Promise((resolve, reject) => {
 });
 
 export {
-  // getItems,
+  getItems,
   getSingleItem,
   deleteItems,
   deleteSingleItem,
