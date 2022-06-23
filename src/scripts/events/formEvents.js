@@ -3,7 +3,7 @@ import { createOrder, updateOrder, getSingleOrder } from '../api/orderData';
 import { showItems } from '../components/pages/showItems';
 import { showOrders } from '../components/pages/showOrders';
 
-const formEvents = (uid, orderId) => {
+const formEvents = (uid) => {
   document.querySelector('#main-container').addEventListener('submit', (e) => {
     e.preventDefault();
 
@@ -46,7 +46,7 @@ const formEvents = (uid, orderId) => {
         uid,
         orderId: orderFirebaseKey
       };
-      updateItem(itemObject, orderId).then((itemsArray) => {
+      updateItem(itemObject, orderFirebaseKey).then((itemsArray) => {
         showItems(itemsArray, orderFirebaseKey);
       });
     }
@@ -59,7 +59,7 @@ const formEvents = (uid, orderId) => {
         uid: `${uid}`,
         orderId: orderFirebaseKey
       };
-      createItem(itemObject, orderId).then((itemsArray) => showItems(itemsArray, orderFirebaseKey));
+      createItem(itemObject, orderFirebaseKey).then((itemsArray) => showItems(itemsArray, orderFirebaseKey));
     }
 
     if (e.target.id.includes('update-payment')) {
