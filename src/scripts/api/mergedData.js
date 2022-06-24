@@ -10,6 +10,7 @@ const viewItemsByOrder = (firebaseKey) => new Promise((resolve, reject) => {
         });
     }).catch((error) => reject(error));
 });
+
 const deleteOrderItems = (orderId) => new Promise((resolve, reject) => {
   getOrderItems(orderId).then((itemsArray) => {
     const deleteItemPromises = itemsArray.map((items) => deleteItems(items.firebaseKey));

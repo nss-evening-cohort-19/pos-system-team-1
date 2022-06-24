@@ -1,8 +1,43 @@
 import clearDom from '../../helpers/clearDom';
 import renderToDOM from '../../helpers/renderToDom';
 
+const filterButtonStr = `
+  <div
+    id="orderStatusOption">
+    <div
+      class="form-check form-check-inline">
+      <input
+        class="form-check-input"
+        type="radio"
+        name="inlineRadioOptions"
+        id="orderStatusOpen"
+        value="orderStatusOpen">
+        <label
+          class="form-check-label"
+          for="orderStatusOpen">
+          Open
+        </label>
+    </div>
+    <div
+      class="form-check form-check-inline">
+      <input
+        class="form-check-input"
+        type="radio"
+        name="inlineRadioOptions"
+        id="orderStatusClosed"
+        value="orderStatusClosed">
+        <label
+          class="form-check-label"
+          for="orderStatusClosed">
+          Closed
+        </label>
+    </div>
+  </div>`;
+
 const emptyOrders = () => {
-  document.querySelector('#view').innerHTML = '<h1>No Items</h1>';
+  const emptyOrderDom = `<div>${filterButtonStr}<div style='display: flex;flex-wrap: wrap;justify-content: center;padding: 30px;'>No item</div></div>`;
+
+  renderToDOM('#view', emptyOrderDom);
 };
 
 const showOrders = (array) => {
@@ -25,39 +60,6 @@ const showOrders = (array) => {
     </div>
     <br>`;
     });
-
-    const filterButtonStr = `
-      <div
-        id="orderStatusOption">
-        <div
-          class="form-check form-check-inline">
-          <input
-            class="form-check-input"
-            type="radio"
-            name="inlineRadioOptions"
-            id="orderStatusOpen"
-            value="orderStatusOpen">
-            <label
-              class="form-check-label"
-              for="orderStatusOpen">
-              Open
-            </label>
-        </div>
-        <div
-          class="form-check form-check-inline">
-          <input
-            class="form-check-input"
-            type="radio"
-            name="inlineRadioOptions"
-            id="orderStatusClosed"
-            value="orderStatusClosed">
-            <label
-              class="form-check-label"
-              for="orderStatusClosed">
-              Closed
-            </label>
-        </div>
-      </div>`;
 
     const showOrderDom = `<div>${filterButtonStr}<div style='display: flex;flex-wrap: wrap;justify-content: center;padding: 30px;'>${domString}</div></div>`;
 
