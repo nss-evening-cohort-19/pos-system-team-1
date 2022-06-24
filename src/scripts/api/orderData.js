@@ -67,9 +67,16 @@ const updateOrder = (orderObj, uid) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-const filterOrder = (uid, searchTerm) => new Promise((resolve, reject) => {
+const filterOrder = (uid, { name, phone, orderStatus }) => new Promise((resolve, reject) => {
   getOrders(uid).then((orders) => {
-    const filteredOrders = orders.filter((order) => order.orderName.toLowerCase() === searchTerm.toLowerCase() || order.customerPhone.toLowerCase() === searchTerm.toLowerCase());
+    let filteredOrders = [];
+    if (name) {
+      filteredOrders = orders.filter((order) => order.orderName.toLowerCase() === name.toLowerCase());
+    } else if (phone) {
+      filteredOrders = orders.filter((order) => order.customerPhone.toLowerCase() === phone.toLowerCase());
+    } else if (orderStatus !== undefined) {
+      filteredOrders = orders.filter((order) => (order.closedStatus === orderStatus));
+    }
 
     if (filteredOrders && filteredOrders.length > 0) {
       resolve(filteredOrders);

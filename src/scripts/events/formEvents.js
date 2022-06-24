@@ -36,30 +36,25 @@ const formEvents = (uid) => {
     }
 
     if (e.target.id.includes('update-item')) {
-      const [, firebaseKey, orderFirebaseKey] = e.target.id.split('--');
-      console.warn(firebaseKey, 'fb');
-      console.warn(orderFirebaseKey, 'orderID');
+      const [, firebaseKey] = e.target.id.split('--');
       const itemObject = {
         itemName: document.querySelector('#itemName').value,
         itemPrice: parseInt(document.querySelector('#itemPrice').value, 10),
         firebaseKey,
         uid,
-        orderId: orderFirebaseKey
+        order_id: document.querySelector('#editOrderId').value,
       };
-      updateItem(itemObject, orderFirebaseKey).then((itemsArray) => {
-        showItems(itemsArray, orderFirebaseKey);
-      });
+      updateItem(itemObject).then((itemsArray) => showItems(itemsArray, itemObject.order_id));
     }
 
     if (e.target.id.includes('submit-item')) {
-      const [, orderFirebaseKey] = e.target.id.split('--');
       const itemObject = {
         itemName: document.querySelector('#itemName').value,
         itemPrice: parseInt(document.querySelector('#itemPrice').value, 10),
-        uid: `${uid}`,
-        orderId: orderFirebaseKey
+        order_id: document.querySelector('#addOrderId').value,
+        uid
       };
-      createItem(itemObject, orderFirebaseKey).then((itemsArray) => showItems(itemsArray, orderFirebaseKey));
+      createItem(itemObject).then((itemsArray) => showItems(itemsArray, itemObject.order_id));
     }
 
     if (e.target.id.includes('update-payment')) {

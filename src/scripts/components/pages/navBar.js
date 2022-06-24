@@ -16,8 +16,8 @@ const navBar = () => {
           style="font-weight: bold;font-family: cursive; font-size: 28px;display: flex;align-items: center;">
           <img
                class="record" src=${vinylImg}
-            style="height: 45px;margin-right: 8px;">
-          Hip-Hop Pizzas
+            style="height: 60px; width: 60px; margin-right: 8px;">
+          Hip-Hop Pizza and Wangs
         </a>
         <button
           class="navbar-toggler"
@@ -66,12 +66,30 @@ const navBar = () => {
               class="d-flex"
               style="margin: 0 20px;"
               role="search">
+              <select
+                class="form-select"
+                style="width: 150px; height: 50px"
+                id="searchOption"
+                aria-label="Order filter options">
+                <option
+                  selected>
+                  Select filter
+                </option>
+                <option
+                  value="name">
+                  Customer Name
+                </option>
+                <option
+                  value="phone">
+                  Customer Phone
+                </option>
+              </select>
               <input
                 id="searchBar"
                 class="form-control me-2"
+                style="width: 150px; height: 50px"
                 style="margin-right: 4px !important;"
                 type="search"
-                placeholder="Enter Name or Phone"
                 aria-label="Search">
               <button
                 id = "searchBtn"

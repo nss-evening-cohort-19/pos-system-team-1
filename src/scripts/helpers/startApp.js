@@ -4,16 +4,17 @@ import navbarEvents from '../events/navbarEvents';
 import domEvents from '../events/domEvents';
 import homeLoggedIn from '../components/pages/homeLoggedIn';
 import formEvents from '../events/formEvents';
-import filterEvents from '../events/filterEvents';
+import { registerSearchEvents, registerOrderStatusFilter } from '../events/filterEvents';
 
 const startApp = (user) => {
   domBuilder();
   navbar();
   homeLoggedIn(user);
-  domEvents(user.uid);
-  navbarEvents(user);
-  formEvents(user.uid);
-  filterEvents(user);
+  domEvents(user); // ADD THE EVENT LISTENTERS TO THE DOM
+  navbarEvents(user); // ATTACH THE EVENT LISTENERS TO THE NAVBAR
+  formEvents(user); // ADD FORM EVENT LISTENTERS TO THE DOM
+  registerSearchEvents(user);
+  registerOrderStatusFilter(user);
 };
 
 export default startApp;
