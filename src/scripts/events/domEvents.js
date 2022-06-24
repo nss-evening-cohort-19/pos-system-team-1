@@ -1,6 +1,7 @@
 /* eslint-disable no-alert */
 import { deleteSingleItem, getSingleItem } from '../api/itemData';
 import { deleteSingleOrder, getOrders, getSingleOrder } from '../api/orderData';
+import { getRevenue } from '../api/revenueData';
 import createOrderForm from '../components/forms/createAnOrderForm';
 import addItemForm from '../components/forms/addItemForm';
 import addPaymentForm from '../components/forms/addPaymentForm';
@@ -14,11 +15,11 @@ const domEvents = (uid) => {
     if (e.target.id.includes('delete-order')) {
       if (window.confirm('Want to delete?')) {
         const [, firebaseKey] = e.target.id.split('--');
-        console.warn(e.target.id);
-        deleteSingleOrder(firebaseKey).then((ordersArray) => showOrders(ordersArray));
+        deleteSingleOrder(firebaseKey, uid).then((ordersArray) => showOrders(ordersArray));
       }
     }
   });
+
   document.querySelector('#view').addEventListener('click', (e) => {
     if (e.target.id.includes('viewOrderBtn')) {
       getOrders(uid).then((orderArray) => showOrders(orderArray));
@@ -32,7 +33,7 @@ const domEvents = (uid) => {
       addItemForm(obj, firebaseKey);
     }
     if (e.target.id.includes('viewRevBtn')) {
-      renderRevenue();
+      getRevenue(uid).then((revenueArray) => renderRevenue(revenueArray));
     }
     if (e.target.id.includes('details-order')) {
       const [, firebaseKey] = e.target.id.split('--');
@@ -40,10 +41,11 @@ const domEvents = (uid) => {
     }
     if (e.target.id.includes('edit-order')) {
       const [, firebaseKey] = e.target.id.split('--');
-      getSingleOrder(firebaseKey).then((orderObject) => createOrderForm(orderObject));
+      getSingleOrder(firebaseKey, uid).then((orderObject) => createOrderForm(orderObject));
     }
     if (e.target.id.includes('checkout')) {
-      addPaymentForm();
+      const [, firebaseKey] = e.target.id.split('--');
+      getSingleOrder(firebaseKey, uid).then((orderObject) => addPaymentForm(orderObject));
     }
   });
 

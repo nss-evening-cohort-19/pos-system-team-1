@@ -1,25 +1,23 @@
 import clearDom from '../../helpers/clearDom';
 import renderToDOM from '../../helpers/renderToDom';
 
-const renderRevenue = () => {
+const renderRevenue = (revenueArray) => {
+  let totalRevenue = 0;
+  let totalTips = 0;
+
+  if (revenueArray && revenueArray.length > 0) {
+    revenueArray.forEach((revenue) => {
+      totalRevenue += Number(revenue.orderTotal);
+      totalTips += Number(revenue.tipAmount);
+    });
+  }
+
   clearDom();
   const domString = `
     <div class= "rev">
-      <div>
-        <h1>Revenue</h1>
-        <h2>Total Revenue</h2>
-      </div>
-      <div>
-        <p>Date Range:<p>
-        <p>Sample range</p>
-        <ul class="rev-list">
-          <li>Total Tips:</li>
-          <li>Total Call-Ins:</li>
-          <li>Total Walk-Ins</li>
-        </ul>
-        <p>Date Range:<p>
-        <p>Sample range</p>
-      </div>
+      <h1>Revenue</h1>
+      <h2>Total Revenue: ${totalRevenue}</h2>
+      <li>Total Tips: ${totalTips}</li>
     </div>
   `;
   renderToDOM('#view', domString);
