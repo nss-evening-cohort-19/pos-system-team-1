@@ -17,7 +17,7 @@ const formEvents = (uid) => {
         uid
       };
 
-      createOrder(orderObject.uid).then((ordersArray) => showOrders(ordersArray));
+      createOrder(orderObject, uid).then((ordersArray) => showOrders(ordersArray));
     }
 
     if (e.target.id.includes('update-order')) {

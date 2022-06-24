@@ -13,7 +13,7 @@ const viewItemsByOrder = (firebaseKey) => new Promise((resolve, reject) => {
 const deleteOrderItems = (orderId) => new Promise((resolve, reject) => {
   getOrderItems(orderId).then((itemsArray) => {
     const deleteItemPromises = itemsArray.map((items) => deleteItems(items.firebaseKey));
-    console.warn(deleteItemPromises);
+    // console.warn(deleteItemPromises);
     Promise.all(deleteItemPromises).then(() => {
       deleteSingleOrder(orderId).then(resolve);
     });

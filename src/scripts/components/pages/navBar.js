@@ -67,7 +67,7 @@ const navBar = () => {
               role="search">
               <select
                 class="form-select"
-                style="width: 150px; height: 50px"
+                style="width: 180px; height: 50px"
                 id="searchOption"
                 aria-label="Order filter options">
                 <option
@@ -85,12 +85,8 @@ const navBar = () => {
               </select>
               <input
                 id="searchBar"
-<<<<<<< HEAD
-                class="form-control my-3"
-=======
                 class="form-control me-2"
-                style="width: 150px; height: 50px"
->>>>>>> main
+                style="width: 180px; height: 50px"
                 style="margin-right: 4px !important;"
                 type="search"
                 aria-label="Search">
