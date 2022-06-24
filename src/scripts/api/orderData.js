@@ -15,14 +15,6 @@ const getOrders = (uid) => new Promise((resolve, reject) => {
     .catch((error) => reject(error));
 });
 
-const deleteOrders = (firebaseKey, uid) => new Promise((resolve, reject) => {
-  axios.delete(`${dbUrl}/orders/${firebaseKey}.json`, uid)
-    .then(() => {
-      getOrders().then((ordersArray) => resolve(ordersArray));
-    })
-    .catch((error) => reject(error));
-});
-
 const createOrder = (orderObj) => new Promise((resolve, reject) => {
   axios.post(`${dbUrl}/orders.json`, orderObj)
     .then((response) => {
@@ -86,7 +78,6 @@ const filterOrder = (uid, { name, phone, orderStatus }) => new Promise((resolve,
 
 export {
   getOrders,
-  deleteOrders,
   createOrder,
   getSingleOrder,
   getClosedOrder,
