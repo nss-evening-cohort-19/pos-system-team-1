@@ -15,16 +15,16 @@ const getItems = (uid) => new Promise((resolve, reject) => {
     .catch((error) => reject(error));
 });
 
-const deleteItems = (firebaseKey, uid) => new Promise((resolve, reject) => {
-  axios.delete(`${dbUrl}/items/${firebaseKey}.json`, uid)
-    .then(() => {
-      getItems().then((itemsArray) => resolve(itemsArray));
-    })
-    .catch((error) => reject(error));
-});
+// const deleteItems = (firebaseKey, orderId) => new Promise((resolve, reject) => {
+//   axios.delete(`${dbUrl}/items/${firebaseKey}.json`)
+//     .then(() => {
+//       getItems(orderId).then((itemsArray) => resolve(itemsArray));
+//     })
+//     .catch((error) => reject(error));
+// });
 
-const getSingleItem = (firebaseKey, uid) => new Promise((resolve, reject) => {
-  axios.get(`${dbUrl}/items/${firebaseKey}.json`, uid)
+const getSingleItem = (firebaseKey) => new Promise((resolve, reject) => {
+  axios.get(`${dbUrl}/items/${firebaseKey}.json`)
     .then((response) => resolve(response.data))
     .catch((error) => reject(error));
 });
@@ -35,11 +35,10 @@ const getItemsByOrder = (firebaseKey) => new Promise((resolve, reject) => {
     .catch((error) => reject(error));
 });
 
-const deleteSingleItem = (itemObject, firebaseKey) => new Promise((resolve, reject) => {
-  const orderIds = itemObject.orderId;
+const deleteSingleItem = (firebaseKey, orderId) => new Promise((resolve, reject) => {
   axios.delete(`${dbUrl}/items/${firebaseKey}.json`)
     .then(() => {
-      getItemsByOrder(orderIds).then((itemsArray) => resolve(itemsArray));
+      getItemsByOrder(orderId).then((itemsArray) => resolve(itemsArray));
     })
     .catch((error) => reject(error));
 });
@@ -64,7 +63,7 @@ const updateItem = (itemObj) => new Promise((resolve, reject) => {
 export {
   getItems,
   getSingleItem,
-  deleteItems,
+  // deleteItems,
   deleteSingleItem,
   createItem,
   updateItem,

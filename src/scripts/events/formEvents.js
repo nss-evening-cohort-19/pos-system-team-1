@@ -32,7 +32,7 @@ const formEvents = (uid) => {
         uid
       };
 
-      updateOrder(orderObject).then((ordersArray) => showOrders(ordersArray));
+      updateOrder(orderObject, uid).then((ordersArray) => showOrders(ordersArray));
     }
 
     if (e.target.id.includes('update-item')) {

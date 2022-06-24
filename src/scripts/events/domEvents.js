@@ -6,7 +6,7 @@ import addItemForm from '../components/forms/addItemForm';
 import addPaymentForm from '../components/forms/addPaymentForm';
 import renderRevenue from '../components/pages/revenue';
 import { showOrders } from '../components/pages/showOrders';
-import { viewItemsByOrder } from '../api/mergedData';
+import viewItemsByOrder from '../api/mergedData';
 import { showItems } from '../components/pages/showItems';
 
 const domEvents = (uid) => {
@@ -15,7 +15,7 @@ const domEvents = (uid) => {
       if (window.confirm('Want to delete?')) {
         const [, firebaseKey] = e.target.id.split('--');
         console.warn(e.target.id);
-        deleteSingleOrder(firebaseKey).then((ordersArray) => showOrders(ordersArray));
+        deleteSingleOrder(firebaseKey, uid).then((ordersArray) => showOrders(ordersArray));
       }
     }
   });
@@ -55,9 +55,9 @@ const domEvents = (uid) => {
 
     if (e.target.id.includes('delete-item-btn')) {
       if (window.confirm('Want to delete?')) {
-        const [, firebaseKey] = e.target.id.split('--');
-        getSingleItem(firebaseKey).then((itemObject) => deleteSingleItem(itemObject, firebaseKey))
-          .then((itemsArray) => showItems(itemsArray, itemsArray[0].orderId));
+        const [, itemFirebaseKey, firebaseKey] = e.target.id.split('--');
+        deleteSingleItem(itemFirebaseKey)
+          .then((itemsArray) => showItems(itemsArray, firebaseKey));
       }
     }
   });

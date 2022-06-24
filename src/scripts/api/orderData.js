@@ -15,13 +15,13 @@ const getOrders = (uid) => new Promise((resolve, reject) => {
     .catch((error) => reject(error));
 });
 
-const createOrder = (orderObj) => new Promise((resolve, reject) => {
+const createOrder = (orderObj, uid) => new Promise((resolve, reject) => {
   axios.post(`${dbUrl}/orders.json`, orderObj)
     .then((response) => {
       const payload = { firebaseKey: response.data.name };
       axios.patch(`${dbUrl}/orders/${response.data.name}.json`, payload)
         .then(() => {
-          getOrders().then((ordersArray) => resolve(ordersArray));
+          getOrders(uid).then((ordersArray) => resolve(ordersArray));
         });
     }).catch(reject);
 });
@@ -32,14 +32,14 @@ const getOrderItems = (orderId) => new Promise((resolve, reject) => {
     .catch((error) => reject(error));
 });
 
-const getSingleOrder = (firebaseKey, uid) => new Promise((resolve, reject) => {
-  axios.get(`${dbUrl}/orders/${firebaseKey}.json`, uid)
+const getSingleOrder = (firebaseKey) => new Promise((resolve, reject) => {
+  axios.get(`${dbUrl}/orders/${firebaseKey}.json`)
     .then((response) => resolve(response.data))
     .catch((error) => reject(error));
 });
 
 const deleteSingleOrder = (firebaseKey, uid) => new Promise((resolve, reject) => {
-  axios.delete(`${dbUrl}/orders/${firebaseKey}.json`, uid)
+  axios.delete(`${dbUrl}/orders/${firebaseKey}.json`)
     .then(() => {
       getOrders(uid).then((ordersArray) => resolve(ordersArray));
     })
