@@ -64,11 +64,11 @@ const navBar = () => {
             </li>
             <form
               class="d-flex"
-              style="margin: 0 20px;"
+              style="margin: 0 5px;"
               role="search">
               <select
                 class="form-select"
-                style="width: 150px; height: 50px"
+                style="width: 180px; height: 50px"
                 id="searchOption"
                 aria-label="Order filter options">
                 <option
@@ -87,7 +87,7 @@ const navBar = () => {
               <input
                 id="searchBar"
                 class="form-control me-2"
-                style="width: 150px; height: 50px"
+                style="width: 180px; height: 50px"
                 style="margin-right: 4px !important;"
                 type="search"
                 aria-label="Search">

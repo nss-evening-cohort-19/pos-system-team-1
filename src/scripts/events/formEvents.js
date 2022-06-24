@@ -1,5 +1,10 @@
 import { createItem, updateItem } from '../api/itemData';
-import { createOrder, updateOrder, getSingleOrder } from '../api/orderData';
+import {
+  createOrder,
+  updateOrder,
+  getSingleOrder,
+  getOrders
+} from '../api/orderData';
 import { showItems } from '../components/pages/showItems';
 import { showOrders } from '../components/pages/showOrders';
 
@@ -31,7 +36,9 @@ const formEvents = (uid) => {
         firebaseKey,
       };
 
-      updateOrder(orderObject, uid).then((ordersArray) => showOrders(ordersArray));
+      updateOrder(orderObject).then(() => {
+        getOrders(uid).then((response) => showOrders(response));
+      });
     }
 
     if (e.target.id.includes('update-item')) {
@@ -40,10 +47,10 @@ const formEvents = (uid) => {
         itemName: document.querySelector('#itemName').value,
         itemPrice: parseInt(document.querySelector('#itemPrice').value, 10),
         firebaseKey,
-        uid,
-        order_id: document.querySelector('#editOrderId').value,
+        orderId: document.querySelector('#editOrderId').value,
+        uid
       };
-      updateItem(itemObject).then((itemsArray) => showItems(itemsArray, itemObject.order_id));
+      updateItem(itemObject).then((itemsArray) => showItems(itemsArray, itemObject.orderId));
     }
 
     if (e.target.id.includes('submit-item')) {
@@ -53,7 +60,7 @@ const formEvents = (uid) => {
         order_id: document.querySelector('#addOrderId').value,
         uid
       };
-      createItem(itemObject).then((itemsArray) => showItems(itemsArray, itemObject.order_id));
+      createItem(itemObject).then((itemsArray) => showItems(itemsArray, itemObject.orderId));
     }
 
     if (e.target.id.includes('update-payment')) {

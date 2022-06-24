@@ -1,6 +1,6 @@
 /* eslint-disable no-alert */
 import { deleteSingleItem, getSingleItem } from '../api/itemData';
-import { deleteOrders, getOrders, getSingleOrder } from '../api/orderData';
+import { deleteSingleOrder, getOrders, getSingleOrder } from '../api/orderData';
 import createOrderForm from '../components/forms/createAnOrderForm';
 import addItemForm from '../components/forms/addItemForm';
 import addPaymentForm from '../components/forms/addPaymentForm';
@@ -15,7 +15,7 @@ const domEvents = (uid) => {
       if (window.confirm('Want to delete?')) {
         const [, firebaseKey] = e.target.id.split('--');
         console.warn(e.target.id);
-        deleteOrders(firebaseKey).then((ordersArray) => showOrders(ordersArray));
+        deleteSingleOrder(firebaseKey).then((ordersArray) => showOrders(ordersArray));
       }
     }
   });
@@ -24,7 +24,7 @@ const domEvents = (uid) => {
       getOrders(uid).then((orderArray) => showOrders(orderArray));
     }
     if (e.target.id.includes('createOrderBtn')) {
-      createOrderForm();
+      createOrderForm(uid);
     }
     if (e.target.id.includes('add-item-btn')) {
       // const orderFirebaseKey = e.target.id.split('--')[1];
@@ -60,7 +60,7 @@ const domEvents = (uid) => {
         const [, firebaseKey] = e.target.id.split('--');
         // deleteSingleItem(firebaseKey).then((itemsArray) => showItems(itemsArray, firebaseKey, uid));
         getSingleItem(firebaseKey).then((itemObject) => deleteSingleItem(itemObject, firebaseKey))
-          .then((itemsArray) => showItems(itemsArray, itemsArray[0].order_id));
+          .then((itemsArray) => showItems(itemsArray, itemsArray[0].orderId));
       }
     }
   });

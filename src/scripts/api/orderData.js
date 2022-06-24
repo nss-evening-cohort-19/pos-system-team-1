@@ -15,14 +15,6 @@ const getOrders = (uid) => new Promise((resolve, reject) => {
     .catch((error) => reject(error));
 });
 
-const deleteOrders = (firebaseKey, uid) => new Promise((resolve, reject) => {
-  axios.delete(`${dbUrl}/orders/${firebaseKey}.json`)
-    .then(() => {
-      getOrders(uid).then((ordersArray) => resolve(ordersArray));
-    })
-    .catch((error) => reject(error));
-});
-
 // FIXME: CREATE AN ORDER
 const createOrder = (orderObj, uid) => new Promise((resolve, reject) => {
   axios.post(`${dbUrl}/orders.json`, orderObj)
@@ -34,22 +26,23 @@ const createOrder = (orderObj, uid) => new Promise((resolve, reject) => {
         });
     }).catch(reject);
 });
+
 const getOrderItems = (orderId) => new Promise((resolve, reject) => {
-  axios.get(`${dbUrl}/items.json?orderBy= "order_id" &equalTo="${orderId}"`)
+  axios.get(`${dbUrl}/items.json?orderBy= "orderId" &equalTo="${orderId}"`)
     .then((response) => resolve(Object.values(response.data)))
     .catch((error) => reject(error));
 });
 
-const getSingleOrder = (firebaseKey) => new Promise((resolve, reject) => {
-  axios.get(`${dbUrl}/orders/${firebaseKey}.json`)
+const getSingleOrder = (firebaseKey, uid) => new Promise((resolve, reject) => {
+  axios.get(`${dbUrl}/orders/${firebaseKey}.json`, uid)
     .then((response) => resolve(response.data))
     .catch((error) => reject(error));
 });
 
-const deleteSingleOrder = (firebaseKey) => new Promise((resolve, reject) => {
-  axios.delete(`${dbUrl}/orders/${firebaseKey}.json`)
+const deleteSingleOrder = (firebaseKey, uid) => new Promise((resolve, reject) => {
+  axios.delete(`${dbUrl}/orders/${firebaseKey}.json`, uid)
     .then(() => {
-      getOrders().then((ordersArray) => resolve(ordersArray));
+      getOrders(uid).then((ordersArray) => resolve(ordersArray));
     })
     .catch((error) => reject(error));
 });
@@ -86,7 +79,6 @@ const filterOrder = (uid, { name, phone, orderStatus }) => new Promise((resolve,
 
 export {
   getOrders,
-  deleteOrders,
   createOrder,
   getSingleOrder,
   getClosedOrder,

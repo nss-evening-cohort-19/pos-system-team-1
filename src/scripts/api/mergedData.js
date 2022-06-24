@@ -7,7 +7,6 @@ const viewItemsByOrder = (firebaseKey) => new Promise((resolve, reject) => {
       getItemsByOrder(orderObject.firebaseKey)
         .then((itemObject) => {
           resolve(Object.values(itemObject));
-          // ({ orderObject, ...itemObject });
         });
     }).catch((error) => reject(error));
 });
@@ -15,7 +14,7 @@ const viewItemsByOrder = (firebaseKey) => new Promise((resolve, reject) => {
 const deleteOrderItems = (orderId) => new Promise((resolve, reject) => {
   getOrderItems(orderId).then((itemsArray) => {
     const deleteItemPromises = itemsArray.map((items) => deleteItems(items.firebaseKey));
-    console.warn(deleteItemPromises);
+    // console.warn(deleteItemPromises);
     Promise.all(deleteItemPromises).then(() => {
       deleteSingleItem(orderId).then(resolve);
     });

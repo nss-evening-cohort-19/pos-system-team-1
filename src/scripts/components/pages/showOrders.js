@@ -18,9 +18,9 @@ const showOrders = (array) => {
       <p class="card-phone">${obj.customerPhone}</p>
       <p class="card-date">${obj.customerEmail}</p>
       <p class="card-type">${obj.orderType}</p>
-      <a href="#" id="details-order--${obj.firebaseKey}">Details</a>
-      ${obj.closedStatus ? `<a href="#" style='color: grey;text-decoration: none;' id="done-order--${obj.firebaseKey}">Edit</a>` : `<a href="#" id="edit-order--${obj.firebaseKey}">Edit</a>`}
-      <a href="#" id="delete-order--${obj.firebaseKey}">Delete</a>
+      <i class="btn btn-success fas fa-eye"  id="details-order--${obj.firebaseKey}"></i>
+      ${obj.closedStatus ? `<i class="fas fa-edit btn btn-info" style='color: grey;text-decoration: none;' id="done-order--${obj.firebaseKey}"></i>` : `<i class="fas fa-edit btn btn-info" id="edit-order--${obj.firebaseKey}"></i>`}
+      <i class="btn btn-danger fas fa-trash-alt" id="delete-order--${obj.firebaseKey}"></i>
       </div>
     </div>
     <br>`;
