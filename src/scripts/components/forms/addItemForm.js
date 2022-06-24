@@ -44,7 +44,7 @@ class="mb-4">
     class="form-control"
     id="editOrderId"
     aria-describedby="cardTitle"
-    value="${obj.order_id}"
+    value="${obj.orderId}"
     required>
   <input 
     type ="hidden"
