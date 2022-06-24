@@ -28,6 +28,7 @@
 (View the [click through prototype](https://www.figma.com/proto/4y3EZddALuBR3ouSEM57Np/MVP?scaling=scale-down&page-id=0%3A1&starting-point-node-id=2%3A2)
 
 * **POS Team 1 Flowchart** [POS Team 1 Flow Chart](https://www.figma.com/file/IbTWQlDC5JZszfziknk4Wl/MVP-POS-Team-1)We used the same FigJam board with arrow annotations to describe the flow between pages.
+https://lucid.app/documents/view/0f2813bb-8e81-461a-856f-01699ea04dea
 
 * **Github POS Team 1 Issue Tickets** 
 [POS Team 1 Isue Tickets](https://github.com/nss-evening-cohort-19/pos-system-team-1/issues)
