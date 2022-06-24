@@ -39,7 +39,7 @@ const getSingleOrder = (firebaseKey) => new Promise((resolve, reject) => {
 });
 
 const deleteSingleOrder = (firebaseKey, uid) => new Promise((resolve, reject) => {
-  axios.delete(`${dbUrl}/orders/${firebaseKey}.json`, uid)
+  axios.delete(`${dbUrl}/orders/${firebaseKey}.json`)
     .then(() => {
       getOrders(uid).then((ordersArray) => resolve(ordersArray));
     })
