@@ -9,7 +9,7 @@ import { showOrders } from '../components/pages/showOrders';
 import { viewItemsByOrder } from '../api/mergedData';
 import { showItems } from '../components/pages/showItems';
 
-const domEvents = (user.uid) => {
+const domEvents = (uid) => {
   document.querySelector('#view').addEventListener('click', (e) => {
     if (e.target.id.includes('delete-order')) {
       if (window.confirm('Want to delete?')) {

@@ -29,10 +29,9 @@ const formEvents = (uid) => {
         orderType: document.querySelector('#order-type').value,
         closedStatus: false,
         firebaseKey,
-        uid
       };
 
-      updateOrder(orderObject, uid).then(showOrders);
+      updateOrder(orderObject, uid).then((ordersArray) => showOrders(ordersArray));
     }
 
     if (e.target.id.includes('update-item')) {

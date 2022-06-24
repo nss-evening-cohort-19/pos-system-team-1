@@ -10,9 +10,9 @@ const startApp = (user) => {
   domBuilder();
   navbar();
   homeLoggedIn(user);
-  domEvents(user); // ADD THE EVENT LISTENTERS TO THE DOM
+  domEvents(user.uid); // ADD THE EVENT LISTENTERS TO THE DOM
   navbarEvents(user); // ATTACH THE EVENT LISTENERS TO THE NAVBAR
-  formEvents(user); // ADD FORM EVENT LISTENTERS TO THE DOM
+  formEvents(user.uid); // ADD FORM EVENT LISTENTERS TO THE DOM
   registerSearchEvents(user);
   registerOrderStatusFilter(user);
 };
