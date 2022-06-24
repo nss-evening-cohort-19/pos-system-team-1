@@ -10,7 +10,6 @@ const emptyItems = () => {
 const showItems = (array, firebaseKey) => {
   clearDom();
   getItemsByOrder(firebaseKey).then((itemArray) => {
-    console.warn(firebaseKey);
     let sum = 0;
 
     itemArray.forEach((item) => {

@@ -57,8 +57,7 @@ const formEvents = (uid) => {
       const itemObject = {
         itemName: document.querySelector('#itemName').value,
         itemPrice: parseInt(document.querySelector('#itemPrice').value, 10),
-        order_id: document.querySelector('#addOrderId').value,
-        uid
+        orderId: document.querySelector('#addOrderId').value,
       };
       createItem(itemObject).then((itemsArray) => showItems(itemsArray, itemObject.orderId));
     }
