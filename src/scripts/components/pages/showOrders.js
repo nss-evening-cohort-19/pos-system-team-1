@@ -54,7 +54,7 @@ const showOrders = (array) => {
       <p class="card-date">${obj.customerEmail}</p>
       <p class="card-type">${obj.orderType}</p>
       <p style="font-weight: bold; class="card-date">${obj.orderDate}</p>
-      <i class="btn btn-success fas fa-eye"  id="details-order--${obj.firebaseKey}"></i>
+      ${obj.closedStatus ? `<i class="btn btn-success fas fa-eye" style='color: grey;text-decoration: none; id="done-order--${obj.firebaseKey}"></i>` : `<i class="btn btn-success fas fa-eye"  id="details-order--${obj.firebaseKey}"></i>`}
       ${obj.closedStatus ? `<i class="fas fa-edit btn btn-info" style='color: grey;text-decoration: none;' id="done-order--${obj.firebaseKey}"></i>` : `<i class="fas fa-edit btn btn-info" id="edit-order--${obj.firebaseKey}"></i>`}
       <i class="btn btn-danger fas fa-trash-alt" id="delete-order--${obj.firebaseKey}"></i>
       </div>
