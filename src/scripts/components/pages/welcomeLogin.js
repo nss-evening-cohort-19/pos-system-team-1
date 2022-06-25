@@ -4,7 +4,7 @@ import snoop from '../../../images/snoopdoggHiphop.gif';
 
 const welcomeLogin = () => {
   document.querySelector('#app').innerHTML = `
-    <h1>Welcome POS!</h1>
+    <h1>Welcome! Please Log In!</h1>
     <img
       src=${hipHopRecord}
       style="height: 300px;margin-right: 8px;"><br />
