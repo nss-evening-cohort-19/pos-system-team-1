@@ -28,7 +28,7 @@ const showItems = (array, firebaseKey) => {
             <h6 class="card-price mb-2 text-muted">$${obj.itemPrice}</h6>
             <hr>
             <i class="fas fa-edit btn btn-info" id="edit-item--${obj.firebaseKey}"></i>
-            <i class="btn btn-danger fas fa-trash-alt" id="delete-item-btn--${obj.firebaseKey}"></i>
+            <i class="btn btn-danger fas fa-trash-alt" id="delete-item-btn--${obj.firebaseKey}--${firebaseKey}"></i>
           </div>
         </div>
     `;

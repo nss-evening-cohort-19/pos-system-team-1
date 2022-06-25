@@ -1,5 +1,5 @@
-import { deleteItems, getItemsByOrder } from './itemData';
-import { getSingleOrder, getOrderItems, deleteSingleOrder } from './orderData';
+import { getItemsByOrder, deleteItems } from './itemData';
+import { getSingleOrder, deleteSingleOrder, getOrderItems } from './orderData';
 
 const viewItemsByOrder = (firebaseKey) => new Promise((resolve, reject) => {
   getSingleOrder(firebaseKey)
@@ -11,12 +11,12 @@ const viewItemsByOrder = (firebaseKey) => new Promise((resolve, reject) => {
     }).catch((error) => reject(error));
 });
 
-const deleteOrderItems = (orderId) => new Promise((resolve, reject) => {
+const deleteOrderItems = (orderId, uid) => new Promise((resolve, reject) => {
   getOrderItems(orderId).then((itemsArray) => {
     const deleteItemPromises = itemsArray.map((items) => deleteItems(items.firebaseKey));
     // console.warn(deleteItemPromises);
     Promise.all(deleteItemPromises).then(() => {
-      deleteSingleOrder(orderId).then(resolve);
+      deleteSingleOrder(orderId, uid).then(resolve);
     });
   }).catch((error) => reject(error));
 });
