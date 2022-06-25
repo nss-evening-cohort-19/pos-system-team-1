@@ -2,7 +2,7 @@
 @import "~bootstrap/scss/bootstrap";
 
 
-body {
+body { 
   color: brown;
   text-align: center;
   margin-top: 100px;
@@ -17,6 +17,7 @@ body {
 };
 
 #view {
+
   display: flex; 
   padding: 30px; 
   flex-wrap: wrap; 
