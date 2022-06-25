@@ -73,4 +73,4 @@ We also had another flow chart drawn up for visual planning in Lucid
 [POS Team 1 Loom Link](https://www.loom.com/share/7860eb14e03b491bb27a60b410971eab)
 
 * **Netlify Deployment Link**
-[Netlify HHP+W Link](https://62b725cf1287490d382058d3--fluffy-kitten-9d4cc8.netlify.app/)
+[Netlify HHP+W Link](https://fluffy-kitten-9d4cc8.netlify.app/)
