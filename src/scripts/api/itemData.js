@@ -15,13 +15,13 @@ const getItems = (uid) => new Promise((resolve, reject) => {
     .catch((error) => reject(error));
 });
 
-// const deleteItems = (firebaseKey, orderId) => new Promise((resolve, reject) => {
-//   axios.delete(`${dbUrl}/items/${firebaseKey}.json`)
-//     .then(() => {
-//       getItems(orderId).then((itemsArray) => resolve(itemsArray));
-//     })
-//     .catch((error) => reject(error));
-// });
+const deleteItems = (firebaseKey, orderId) => new Promise((resolve, reject) => {
+  axios.delete(`${dbUrl}/items/${firebaseKey}.json`)
+    .then(() => {
+      getItems(orderId).then((itemsArray) => resolve(itemsArray));
+    })
+    .catch((error) => reject(error));
+});
 
 const getSingleItem = (firebaseKey) => new Promise((resolve, reject) => {
   axios.get(`${dbUrl}/items/${firebaseKey}.json`)
@@ -63,7 +63,7 @@ const updateItem = (itemObj) => new Promise((resolve, reject) => {
 export {
   getItems,
   getSingleItem,
-  // deleteItems,
+  deleteItems,
   deleteSingleItem,
   createItem,
   updateItem,

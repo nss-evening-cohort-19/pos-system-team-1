@@ -49,7 +49,7 @@ const addPaymentForm = (obj = {}) => {
     class="form-control"
     id="tipAmount"
     aria-describedby="cardTitle"
-    value="${obj.tipAmount || ''}"
+    value="${obj.tipAmount || 0}"
     required>
 </div>
 <button
