@@ -2,10 +2,15 @@
 @import "~bootstrap/scss/bootstrap";
 
 
-body {
+body { 
+  background-color: rgb(177, 174, 174);
   color: brown;
   text-align: center;
   margin-top: 100px;
+}
+.snoop{
+  border: 5px ridge black;
+  border-radius: 25%;
 }
   .card-body{
     background-color: #fff;
@@ -17,6 +22,7 @@ body {
 };
 
 #view {
+
   display: flex; 
   padding: 30px; 
   flex-wrap: wrap; 

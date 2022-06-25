@@ -17,6 +17,7 @@ const formEvents = (uid) => {
         customerPhone: document.querySelector('#phone').value,
         customerEmail: document.querySelector('#email').value,
         orderType: document.querySelector('#order-type').value,
+        orderDate: new Date().toLocaleString(),
         closedStatus: false,
         uid
       };
@@ -31,6 +32,7 @@ const formEvents = (uid) => {
         customerPhone: document.querySelector('#phone').value,
         customerEmail: document.querySelector('#email').value,
         orderType: document.querySelector('#order-type').value,
+        orderDate: new Date().toLocaleString(),
         closedStatus: false,
         firebaseKey,
         uid
