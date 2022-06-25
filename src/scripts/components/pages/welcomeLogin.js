@@ -1,13 +1,17 @@
 import loginButton from '../auth/loginButton';
-import hoppizza from '../../../images/hoppizza.jpeg';
+import hipHopRecord from '../../../images/hhpw-record.png';
+import snoop from '../../../images/snoopdoggHiphop.gif';
 
 const welcomeLogin = () => {
   document.querySelector('#app').innerHTML = `
     <h1>Welcome POS!</h1>
     <img
-      src=${hoppizza}
-      style="height: 500px;margin-right: 8px;"><br />
+      src=${hipHopRecord}
+      style="height: 300px;margin-right: 8px;"><br />
     <div id="login-form-container"></div>
+    <img class="snoop"
+      src=${snoop}
+      style="height: 200px;margin-right: 8px;"><br />
   `;
   loginButton();
 };

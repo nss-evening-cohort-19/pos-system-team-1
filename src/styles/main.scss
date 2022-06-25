@@ -3,9 +3,14 @@
 
 
 body { 
+  background-color: rgb(177, 174, 174);
   color: brown;
   text-align: center;
   margin-top: 100px;
+}
+.snoop{
+  border: 5px ridge black;
+  border-radius: 25%;
 }
   .card-body{
     background-color: #fff;
