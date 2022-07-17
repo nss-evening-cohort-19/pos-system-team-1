@@ -1,0 +1,38 @@
+{
+  "-DiBsfuTafbED8eAULxV" :{ 
+    "firebaseKey" : "-DiBsfuTafbED8eAULxV",
+    "orderName" : "Jacob",
+    "closedStatus" : true,
+    "customerPhone" : "615-945-5033",
+    "customerEmail" : "123@gamil.com",
+    "orderType": "phone",
+    "dateCreated" : "06/13/2022"
+  },
+  "-TWOsfuTafbED8eAULxV" :{ 
+    "firebaseKey" : "-TWOsfuTafbED8eAULxV",
+    "orderName" : "Nishaya",
+    "closedStatus" : false,
+    "customerPhone" : "615-945-5045",
+    "customerEmail" : "193@gmail.com",
+    "orderType": "in-person",
+    "dateCreated" : "06/15/2022"
+  },
+  "-MiBsfuTafbEQ7eAULxV" :{ 
+    "firebaseKey" : "-MiBsfuTafbEQ7eAULxV",
+    "orderName" : "Lesley",
+    "closedStatus" : false,
+    "customerPhone" : "931-743-5555",
+    "customerEmail" : "133@gmail.com",
+    "orderType": "phone",
+    "dateCreated" : "06/17/2022"
+  },
+    "-MiBulenBnY8by9Xn7q1" :{ 
+      "firebaseKey" : "-MiBulenBnY8by9Xn7q1",
+      "orderName" : "Jeremiah",
+      "closedStatus" : true,
+      "customerPhone" : "615-945-5045",
+      "customerEmail" : "143@gmail.com",
+      "orderType": "in-person",
+      "dateCreated" : "06/16/2022"
+  }
+}
